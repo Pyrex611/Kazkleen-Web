@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KazKleen - Premium Cleaning & Interior Design</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Simple fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Apply fade-in to sections (can be done with JS Intersection Observer for better performance) */
+        .fade-in-section {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Active tab style */
+        .tab-active {
+            border-color: #2563EB; /* blue-600 */
+            color: #2563EB;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="text-3xl font-extrabold text-blue-600">
+                    KazKleen
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300">Services</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About Us</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+                    <a href="#contact" class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                        Get a Free Quote
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#home" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="#services" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="#about" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">About Us</a>
+            <a href="#contact" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">Contact</a>
+            <a href="#contact" class="block px-4 py-4 m-4 text-center bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700">
+                Get a Free Quote
+            </a>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-[70vh] md:min-h-[80vh] flex items-center bg-gray-900 text-white">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="https://placehold.co/1600x900/E0F2F1/333333?text=Impeccably+Clean+Living+Space" 
+                     alt="A beautifully clean and well-decorated living room" 
+                     class="w-full h-full object-cover opacity-40">
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 fade-in-section">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                    Beyond Clean. Beyond Compare.
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
+                    From spotless spaces to stunning interior designs, KazKleen is your all-in-one partner for a home you'll truly love.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#services" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                        Explore Our Services
+                    </a>
+                    <a href="#contact" class="inline-block bg-gray-100 text-blue-600 px-8 py-3 rounded-lg text-lg font-medium shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+                        Book a Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section (Tabbed) -->
+        <section id="services" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Our Services</h2>
+                    <p class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900">
+                        Everything Your Space Needs
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+                        We offer a comprehensive suite of services. Select a category to learn more.
+                    </p>
+                </div>
+                
+                <!-- Tab Headers -->
+                <div class="mt-12">
+                    <div class="flex justify-center border-b border-gray-200">
+                        <button class="tab-button tab-active py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600 border-b-2 border-transparent focus:outline-none" data-tab="cleaning">
+                            Cleaning Services
+                        </button>
+                        <button class="tab-button py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600 border-b-2 border-transparent focus:outline-none" data-tab="decoration">
+                            Interior Decoration
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="mt-10">
+                    <!-- Cleaning Services Tab -->
+                    <div id="cleaning" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Service Card 1 -->
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+                                <img src="https://placehold.co/400x300/BFDBFE/1E3A8A?text=Residential+Cleaning" alt="Residential Cleaning" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Residential Cleaning</h3>
+                                    <p class="mt-3 text-gray-600">Weekly, bi-weekly, or one-time cleaning for your home, apartment, or condo. We leave every corner spotless.</p>
+                                </div>
+                            </div>
+                            <!-- Service Card 2 -->
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+                                <img src="https://placehold.co/400x300/BDBFEA/1E3A8A?text=Commercial+Cleaning" alt="Commercial Cleaning" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Commercial Cleaning</h3>
+                                    <p class="mt-3 text-gray-600">Reliable and thorough cleaning services for offices, retail spaces, and other commercial properties.</p>
+                                </div>
+                            </div>
+                            <!-- Service Card 3 -->
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+                                <img src="https://placehold.co/400x300/99F6E4/0F766E?text=Deep+Cleaning" alt="Deep Cleaning" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Deep Cleaning & Sanitization</h3>
+                                    <p class="mt-3 text-gray-600">A comprehensive top-to-bottom clean. Ideal for move-ins, move-outs, or post-construction.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interior Decoration Tab -->
+                    <div id="decoration" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Service Card 4 -->
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+                                <img src="https://placehold.co/400x300/FBCFE8/831843?text=Design+Consultation" alt="Design Consultation" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Design Consultation</h3>
+                                    <p class="mt-3 text-gray-600">Stuck on a color palette or layout? Our experts provide one-on-one advice to unlock your home's potential.</p>
+                                </div>
+                            </div>
+                            <!-- Service Card 5 -->
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+                                <img src="https://placehold.co/400x300/FDE68A/B45309?text=Full+Room+Makeover" alt="Full Room Makeover" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Full Room Makeover</h3>
+                                    <p class="mt-3 text-gray-600">From concept to completion, we handle everything: furniture, lighting, and decor to create your dream space.</p>
+                                </div>
+                            </div>
+                            <!-- Service Card 6 -->
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+                                <img src="https://placehold.co/400x300/D1FAE5/065F46?text=Home+Staging" alt="Home Staging" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Home Staging</h3>
+                                    <p class="mt-3 text-gray-600">Selling your property? We'll stage it to highlight its best features and attract potential buyers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Why KazKleen?</h2>
+                    <p class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900">
+                        The Clear Choice for a Better Space
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+                    <!-- Feature 1 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mx-auto">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16v4m-2-2h4m5 11v4m-2-2h4M12 3v10m0 0v10m0-10l5-5m-5 5l-5 5"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Dual Expertise</h3>
+                        <p class="mt-2 text-gray-600">Why hire two companies? We masterfully combine elite cleaning with creative interior design.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mx-auto">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Trusted & Vetted Pros</h3>
+                        <p class="mt-2 text-gray-600">Our team is fully insured, bonded, and background-checked for your complete peace of mind.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mx-auto">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Eco-Friendly & Safe</h3>
+                        <p class="mt-2 text-gray-600">We use high-quality, eco-friendly cleaning products that are safe for your family, pets, and the planet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-blue-600">
+            <div class="max-w-4xl mx-auto text-center py-16 px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Ready to transform your space?
+                </h2>
+                <p class="mt-4 text-lg leading-6 text-blue-100">
+                    Let's get started. Contact us today for a free, no-obligation quote.
+                </p>
+                <a href="#contact" class="mt-8 inline-block bg-white text-blue-600 font-medium py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    Get Your Free Quote
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                            Get in Touch
+                        </h2>
+                        <p class="mt-4 text-xl text-gray-600">
+                            We'd love to hear from you! Whether you have a question or are ready to book, reach out and we'll get back to you soon.
+                        </p>
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.06 11.06 0 006.313 6.313l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-lg font-medium text-gray-900">Phone</h3>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                                    <p class="text-gray-600">hello@kazkleen.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-lg font-medium text-gray-900">Address</h3>
+                                    <p class="text-gray-600">123 Clean St, Sparkle City, 10001</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <form action="#" method="POST">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                    <input id="email" name="email" type="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label for="service-interest" class="block text-sm font-medium text-gray-700">Service of Interest</label>
+                                    <select id="service-interest" name="service-interest" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white">
+                                        <option>Please select</option>
+                                        <option>Residential Cleaning</option>
+                                        <option>Commercial Cleaning</option>
+                                        <option>Deep Cleaning</option>
+                                        <option>Interior Decoration</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-lg text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Company -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="#" class="text-3xl font-extrabold text-white">
+                        KazKleen
+                    </a>
+                    <p class="mt-4 text-gray-400">Your partner in creating clean, beautiful, and inspiring spaces.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Quick Links</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#home" class="hover:text-white">Home</a></li>
+                        <li><a href="#services" class="hover:text-white">Services</a></li>
+                        <li><a href="#about" class="hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Our Services</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#services" class="hover:text-white">Cleaning</a></li>
+                        <li><a href="#services" class="hover:text-white">Decoration</a></li>
+                        <li><a href="#services" class="hover:text-white">Home Staging</a></li>
+                        <li><a href="#services" class="hover:text-white">Commercial</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Connect -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Connect</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="hover:text-white">Facebook</a></li>
+                        <li><a href="#" class="hover:text-white">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 KazKleen.com. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Tabs -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Mobile Menu Toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Tab Functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabName = button.getAttribute('data-tab');
+                    
+                    // Deactivate all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                    });
+                    
+                    // Activate clicked button
+                    button.classList.add('tab-active');
+                    
+                    // Hide all content
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show target content
+                    document.getElementById(tabName).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
