@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KazKleen - Premium Cleaning & Interior Design</title>
+    <link rel="icon" type="image/jpeg" href="kazkleen.jpg">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -89,7 +90,7 @@
         <section id="home" class="relative min-h-[70vh] md:min-h-[80vh] flex items-center bg-gray-900 text-white">
             <!-- Background Image -->
             <div class="absolute inset-0">
-                <img src="https://placehold.co/1600x900/E0F2F1/333333?text=Impeccably+Clean+Living+Space" 
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" 
                      alt="A beautifully clean and well-decorated living room" 
                      class="w-full h-full object-cover opacity-40">
             </div>
@@ -197,6 +198,49 @@
                                     <p class="mt-3 text-gray-600">Selling your property? We'll stage it to highlight its best features and attract potential buyers.</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section id="ai-tools" class="py-20 bg-indigo-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Smart Assistant</h2>
+                    <p class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900">
+                        Powered by AI, Designed for You
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+                        Try our experimental AI tool to get instant cleaning advice before you even book.
+                    </p>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <!-- Tool 1: AI Stain Buster -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl border-t-4 border-blue-500">
+                        <div class="flex items-center mb-6">
+                            <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">AI Stain Buster</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Spilled something? Tell us what happened (e.g., "Red wine on white wool rug") and our AI expert will give you immediate first-aid steps.</p>
+                        
+                        <div class="space-y-4">
+                            <textarea id="stain-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="2" placeholder="Describe your spill or stain..."></textarea>
+                            <button id="stain-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+                                <span>Get Cleaning Advice</span>
+                                <span>✨</span>
+                            </button>
+                        </div>
+                        
+                        <div id="stain-result" class="mt-6 hidden p-4 bg-blue-50 rounded-lg border border-blue-100">
+                            <h4 class="font-semibold text-blue-800 mb-2">Expert Advice:</h4>
+                            <div id="stain-content" class="text-gray-700 text-sm whitespace-pre-line"></div>
                         </div>
                     </div>
                 </div>
