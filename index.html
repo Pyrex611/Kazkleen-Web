@@ -500,6 +500,8 @@
 
     <!-- JavaScript for Mobile Menu and Tabs -->
     <script>
+        const apiKey = ""; // API key provided by environment
+
         document.addEventListener('DOMContentLoaded', () => {
             
             // Mobile Menu Toggle
@@ -535,6 +537,75 @@
                     document.getElementById(tabName).classList.remove('hidden');
                 });
             });
+            
+            // --- GEMINI API INTEGRATION ---
+
+            async function callGeminiAPI(prompt) {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }]
+                };
+
+                // Exponential backoff
+                const delays = [1000, 2000, 4000, 8000, 16000];
+                
+                for (let i = 0; i <= 5; i++) {
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            if (response.status === 429 && i < 5) {
+                                await new Promise(resolve => setTimeout(resolve, delays[i]));
+                                continue;
+                            }
+                            throw new Error(`API Error: ${response.status}`);
+                        }
+
+                        const data = await response.json();
+                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "I couldn't generate a response. Please try again.";
+                    } catch (error) {
+                        if (i === 5) throw error;
+                    }
+                }
+            }
+
+            // AI Stain Buster Logic
+            const stainBtn = document.getElementById('stain-btn');
+            const stainInput = document.getElementById('stain-input');
+            const stainResult = document.getElementById('stain-result');
+            const stainContent = document.getElementById('stain-content');
+
+            if (stainBtn) {
+                stainBtn.addEventListener('click', async () => {
+                    const userQuery = stainInput.value.trim();
+                    if (!userQuery) return;
+
+                    // UI Loading State
+                    stainBtn.disabled = true;
+                    stainBtn.innerHTML = '<span class="spinner"></span> Analysis in progress...';
+                    stainResult.classList.add('hidden');
+
+                    const systemPrompt = `You are a professional cleaning expert for KazKleen. The user has a stain or cleaning issue described as: "${userQuery}". 
+                    Provide a concise, safe, step-by-step guide to cleaning it. Use bullet points. 
+                    If the request is dangerous or not about cleaning, polite refuse. Keep it under 100 words.`;
+
+                    try {
+                        const response = await callGeminiAPI(systemPrompt);
+                        stainContent.innerText = response;
+                        stainResult.classList.remove('hidden');
+                    } catch (error) {
+                        stainContent.innerText = "Sorry, our cleaning expert is offline right now. Please contact us directly.";
+                        stainResult.classList.remove('hidden');
+                    } finally {
+                        stainBtn.disabled = false;
+                        stainBtn.innerHTML = '<span>Get Cleaning Advice</span><span>✨</span>';
+                    }
+                });
+            }
         });
     </script>
 </body>
