@@ -393,26 +393,34 @@
                     
                     <!-- Contact Form -->
                     <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <form action="#" method="POST">
+                        <form action="https://formsubmit.co/Kazkleen@gmail.com" method="POST">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_cc" value="hello@kazkleen.com">
+                            <input type="hidden" name="_subject" value="New Quote Request - KazKleen Website">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
                                     <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div class="sm:col-span-2">
                                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input id="email" name="email" type="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                    <input id="email" name="email" type="email" autocomplete="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div class="sm:col-span-2">
                                     <label for="service-interest" class="block text-sm font-medium text-gray-700">Service of Interest</label>
                                     <select id="service-interest" name="service-interest" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white">
                                         <option>Please select</option>
                                         <option>Residential Cleaning</option>
+                                        <option>Post-Construction Cleaning</option>
                                         <option>Commercial Cleaning</option>
+                                        <option>Post Construction Cleaning</option>
                                         <option>Deep Cleaning</option>
                                         <option>Interior Decoration</option>
                                         <option>Other</option>
@@ -420,7 +428,7 @@
                                 </div>
                                 <div class="sm:col-span-2">
                                     <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                    <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
                                 </div>
                             </div>
                             <div class="mt-6">
