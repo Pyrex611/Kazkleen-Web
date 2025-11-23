@@ -640,6 +640,37 @@
                 });
             });
             
+            // --- Request Service Button Logic (New) ---
+            const requestButtons = document.querySelectorAll('.request-service-btn');
+            const serviceSelect = document.getElementById('service-interest');
+            const messageField = document.getElementById('message');
+
+            requestButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const serviceName = btn.getAttribute('data-service');
+                    
+                    // Scroll to contact form
+                    document.getElementById('contact').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+
+                    // Update Select Box
+                    if (serviceSelect) {
+                        serviceSelect.value = serviceName;
+                        // Flash the select box briefly to indicate change
+                        serviceSelect.classList.add('ring-2', 'ring-blue-500');
+                        setTimeout(() => serviceSelect.classList.remove('ring-2', 'ring-blue-500'), 1000);
+                    }
+
+                    // Focus message field
+                    if (messageField) {
+                        messageField.focus();
+                    }
+                });
+            });
+
             // --- GEMINI API INTEGRATION ---
 
             async function callGeminiAPI(prompt) {
