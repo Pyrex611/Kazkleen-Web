@@ -519,6 +519,55 @@
     <script>
         const apiKey = "AIzaSyAA1bavg316K09wqvpgR6_LnEA83kmfrcY"; 
 
+            // --- Contact Form AJAX Logic ---
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const toast = document.getElementById('toast');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Stop the page from redirecting
+
+                    // 1. Change Button State to Loading
+                    const originalBtnText = submitBtn.innerText;
+                    submitBtn.innerText = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    // 2. Gather Data
+                    const formData = new FormData(contactForm);
+
+                    // 3. Send via Fetch (AJAX)
+                    fetch("https://formsubmit.co/ajax/Kazkleen@gmail.com", {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // 4. Success Handling
+                        contactForm.reset(); // Clear the form
+                        showToast(); // Show success message
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("There was an error sending your message. Please try again or email us directly.");
+                    })
+                    .finally(() => {
+                        // 5. Reset Button
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+
+            function showToast() {
+                // Remove hidden state classes
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                
+                // Hide after 5 seconds
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 5000);
+            }
         document.addEventListener('DOMContentLoaded', () => {
             
             // Mobile Menu Toggle
