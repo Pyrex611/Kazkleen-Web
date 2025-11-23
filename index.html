@@ -555,6 +555,8 @@
     <script>
         const apiKey = "AIzaSyAA1bavg316K09wqvpgR6_LnEA83kmfrcY"; 
 
+        document.addEventListener('DOMContentLoaded', () => {
+            
             // --- Contact Form AJAX Logic ---
             const contactForm = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
@@ -573,7 +575,7 @@
                     const formData = new FormData(contactForm);
 
                     // 3. Send via Fetch (AJAX)
-                    fetch("https://formsubmit.co/ajax/hello@kazkleen.com", {
+                    fetch("https://formsubmit.co/ajax/Kazkleen@gmail.com", {
                         method: "POST",
                         body: formData
                     })
@@ -604,8 +606,7 @@
                     toast.classList.add('translate-y-20', 'opacity-0');
                 }, 5000);
             }
-        document.addEventListener('DOMContentLoaded', () => {
-            
+
             // Mobile Menu Toggle
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
