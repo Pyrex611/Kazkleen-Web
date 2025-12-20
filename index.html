@@ -3,74 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KazKleen offers premium cleaning services in Abuja. Trusted residential & commercial cleaning in Garki, Maitama, Wuse, and across Abuja. Book your cleaning today!">
-    
-    <meta name="keywords" content="cleaning services abuja, abuja cleaners, house cleaning abuja, office cleaning abuja, residential cleaning abuja, commercial cleaning abuja, home service abuja">
+    <meta name="description" content="KazKleen provides premium residential, commercial, and post-construction cleaning services in Abuja. Expert fumigation and wardrobe management.">
+    <meta name="keywords" content="cleaning services abuja, fumigation abuja, wardrobe arrangement, post construction cleaning, office cleaning abuja">
     <meta name="author" content="KazKleen">
     <meta name="robots" content="index, follow">
     
-    <title>KazKleen | Premium Cleaning Services in Abuja - Trusted & Affordable</title>
+    <link rel="canonical" href="https://kazkleen.com/" />
+
+    <title>KazKleen | Professional Cleaning & Fumigation Services Abuja</title>
+    
     <link rel="icon" type="image/jpeg" href="kaz.jpg">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Custom Styles -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CleaningService",
+      "name": "KazKleen Abuja",
+      "image": "https://kazkleen.com/kaz.jpg",
+      "telephone": "+2349046042275",
+      "email": "hello@kazkleen.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abuja",
+        "addressCountry": "NG"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Sky blue-ish
+                            600: '#0284c7', // Primary Brand Color
+                            800: '#075985', // Darker Navy
+                            900: '#0c4a6e', // Deep Navy
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
         }
-        
-        /* Simple fade-in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0284c7;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
-        
-        /* Apply fade-in to sections (can be done with JS Intersection Observer for better performance) */
-        .fade-in-section {
-            animation: fadeIn 0.8s ease-out forwards;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        
-        /* Active tab style */
-        .tab-active {
-            border-color: #2563EB; /* blue-600 */
-            color: #2563EB;
-            font-weight: 600;
+
+        /* Form styling fix to prevent autofill background color clash */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+            transition: background-color 5000s ease-in-out 0s;
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-gray-50 text-slate-800 antialiased relative">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <div id="preloader">
+        <div class="text-center">
+            <div class="loader mx-auto mb-4"></div>
+            <h2 class="text-brand-900 font-bold text-xl tracking-wider">KazKleen</h2>
+        </div>
+    </div>
+
+    <div class="bg-brand-900 text-white text-xs py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.06 11.06 0 006.313 6.313l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    +234 904 604 2275
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    hello@kazkleen.com
+                </span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-brand-200">Get a Quote</a>
+                <a href="#" class="hover:text-brand-200">Careers</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-40 transition-all duration-300" id="main-header">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="#" class="text-3xl font-extrabold text-blue-600">
-                    KazKleen Abuja
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-2">
+                    <span class="text-2xl font-extrabold text-brand-800 tracking-tight">Kaz<span class="text-brand-600">Kleen</span></span>
                 </a>
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
-                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300">Services</a>
-                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About Us</a>
-                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
-                    <a href="#contact" class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-                        Get a Free Quote
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#home" class="text-gray-600 hover:text-brand-600 transition">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-600 transition">About</a>
+                    <a href="#services" class="text-gray-600 hover:text-brand-600 transition">Services</a>
+                    <a href="#process" class="text-gray-600 hover:text-brand-600 transition">How it Works</a>
+                    <a href="#contact" class="bg-brand-600 text-white px-6 py-2.5 rounded shadow hover:bg-brand-700 transition transform hover:-translate-y-0.5">
+                        Book Now
                     </a>
                 </div>
                 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <button id="mobile-menu-button" class="text-gray-700 p-2 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
@@ -78,406 +154,322 @@
             </div>
         </nav>
         
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="#home" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">Home</a>
-            <a href="#services" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">Services</a>
-            <a href="#about" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">About Us</a>
-            <a href="#contact" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">Contact</a>
-            <a href="#contact" class="block px-4 py-4 m-4 text-center bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700">
-                Get a Free Quote
-            </a>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#process" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50 rounded-md">How it Works</a>
+                <a href="#contact" class="block mt-4 text-center w-full bg-brand-600 text-white px-5 py-3 rounded-lg font-bold shadow-sm">
+                    Book Now
+                </a>
+            </div>
         </div>
     </header>
 
     <main>
         
-        <!-- Hero Section -->
-        <section id="home" class="relative min-h-[70vh] md:min-h-[80vh] flex items-center bg-gray-900 text-white">
-            <!-- Background Image -->
-            <div class="absolute inset-0">
-                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" 
-                     alt="A beautifully clean and well-decorated living room" 
-                     class="w-full h-full object-cover opacity-40">
+        <section id="home" class="relative bg-brand-900 overflow-hidden min-h-[600px] flex items-center">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1581578731117-104f2a863a30?q=80&w=2000&auto=format&fit=crop" 
+                     alt="Professional Commercial Cleaning Office" 
+                     class="w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/90 to-transparent"></div>
             </div>
             
-            <!-- Hero Content -->
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 fade-in-section">
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                    Beyond Clean. Beyond Compare.
-                </h1>
-                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-                    KazKleen provides professional residential and commercial cleaning services across Abuja. Serving Garki, Maitama, Wuse, Asokoro, Gwarinpa and all Abuja districts with reliable, thorough cleaning solutions.
-                </p>
-                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-                    From spotless spaces to stunning interior designs, KazKleen is Abuja's all-in-one partner for a home you'll truly love.
-                </p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#services" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
-                        Explore Our Services
-                    </a>
-                    <a href="#contact" class="inline-block bg-gray-100 text-blue-600 px-8 py-3 rounded-lg text-lg font-medium shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105">
-                        Book a Consultation
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section (Tabbed) -->
-        <section id="services" class="py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Our Services</h2>
-                    <p class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900">
-                        Everything Your Space Needs
-                    </p>
-                    <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-                        We offer a comprehensive suite of services. Select a category to learn more.
-                    </p>
-                </div>
-                
-                <!-- Tab Headers -->
-                <div class="mt-12">
-                    <div class="flex justify-center border-b border-gray-200">
-                        <button class="tab-button tab-active py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600 border-b-2 border-transparent focus:outline-none" data-tab="cleaning">
-                            Cleaning Services
-                        </button>
-                        <button class="tab-button py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600 border-b-2 border-transparent focus:outline-none" data-tab="decoration">
-                            Interior Decoration
-                        </button>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-brand-500/30 bg-brand-800/50 text-brand-100 text-xs font-semibold uppercase tracking-wide mb-6">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span> Available in Abuja
                     </div>
-                </div>
-                
-                <!-- Tab Content -->
-                <div class="mt-10">
-                    <!-- Cleaning Services Tab -->
-                    <div id="cleaning" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <!-- Service Card 1 -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=800&auto=format&fit=crop" alt="Residential Cleaning" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Residential Cleaning</h3>
-                                        <p class="mt-3 text-gray-600">Weekly, bi-weekly, or one-time cleaning for your home, apartment, or condo. We leave every corner spotless.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-blue-100 text-blue-700 py-2 rounded-lg font-medium hover:bg-blue-200 transition duration-300" data-service="Residential Cleaning">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Service Card 2: Post Construction (New) -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=800&auto=format&fit=crop" alt="Post Construction Cleaning" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Post Construction Cleaning</h3>
-                                        <p class="mt-3 text-gray-600">Specialized removal of dust, debris, and residue after renovation or building work. We make your space move-in ready.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-blue-100 text-blue-700 py-2 rounded-lg font-medium hover:bg-blue-200 transition duration-300" data-service="Post Construction Cleaning">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Service Card 3 -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Commercial Cleaning" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Commercial Cleaning</h3>
-                                        <p class="mt-3 text-gray-600">Reliable and thorough cleaning services for offices, retail spaces, and other commercial properties.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-blue-100 text-blue-700 py-2 rounded-lg font-medium hover:bg-blue-200 transition duration-300" data-service="Commercial Cleaning">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Service Card 4 -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?q=80&w=800&auto=format&fit=crop" alt="Deep Cleaning" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Deep Cleaning & Sanitization</h3>
-                                        <p class="mt-3 text-gray-600">A comprehensive top-to-bottom clean. Ideal for move-ins, move-outs, or thorough seasonal refreshes.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-blue-100 text-blue-700 py-2 rounded-lg font-medium hover:bg-blue-200 transition duration-300" data-service="Deep Cleaning & Sanitization">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+                        Excellence in Every <br/>
+                        <span class="text-brand-500">Square Inch.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                        KazKleen delivers premium cleaning, fumigation, and organization services for homes and businesses. Trusted by Abuja's finest establishments.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 md:text-lg transition shadow-lg hover:shadow-xl">
+                            Get A Quote
+                        </a>
+                        <a href="#services" class="inline-flex justify-center items-center px-8 py-4 border border-gray-500 text-base font-medium rounded-md text-gray-200 bg-transparent hover:bg-white/10 md:text-lg transition">
+                            View Services
+                        </a>
                     </div>
                     
-                    <!-- Interior Decoration Tab -->
-                    <div id="decoration" class="tab-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <!-- Service Card 4 -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=800&auto=format&fit=crop" alt="Design Consultation" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Design Consultation</h3>
-                                        <p class="mt-3 text-gray-600">Stuck on a color palette or layout? Our experts provide one-on-one advice to unlock your home's potential.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-purple-100 text-purple-700 py-2 rounded-lg font-medium hover:bg-purple-200 transition duration-300" data-service="Design Consultation">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Service Card 5 -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" alt="Full Room Makeover" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Full Room Makeover</h3>
-                                        <p class="mt-3 text-gray-600">From concept to completion, we handle everything: furniture, lighting, and decor to create your dream space.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-purple-100 text-purple-700 py-2 rounded-lg font-medium hover:bg-purple-200 transition duration-300" data-service="Full Room Makeover">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Service Card 6 -->
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Home Staging" class="w-full h-48 object-cover">
-                                <div class="p-6 flex-grow flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-900">Home Staging</h3>
-                                        <p class="mt-3 text-gray-600">Selling your property? We'll stage it to highlight its best features and attract potential buyers.</p>
-                                    </div>
-                                    <button class="request-service-btn mt-4 w-full bg-purple-100 text-purple-700 py-2 rounded-lg font-medium hover:bg-purple-200 transition duration-300" data-service="Home Staging">
-                                        Request Service
-                                    </button>
-                                </div>
-                            </div>
+                    <div class="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-8">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-sm text-gray-400">Vetted Professionals</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-sm text-gray-400">On-Time Guarantee</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                            <span class="text-sm text-gray-400">Eco-Friendly Products</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AI Tools Section -->
-        <section id="ai-tools" class="py-20 bg-indigo-50">
+        <section id="process" class="py-16 bg-white border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Smart Assistant</h2>
-                    <p class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900">
-                        Powered by AI, Designed for You
-                    </p>
-                    <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-                        Try our experimental AI tool to get instant cleaning advice before you even book.
-                    </p>
+                    <h2 class="text-sm font-bold text-brand-600 uppercase tracking-widest">How It Works</h2>
+                    <h3 class="mt-2 text-3xl font-bold text-gray-900">Seamless Service Delivery</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -z-10 transform -translate-y-1/2"></div>
+                    
+                    <div class="bg-white p-6">
+                        <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-brand-100 shadow-sm text-brand-600 font-bold text-xl">1</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Book Online</h4>
+                        <p class="text-gray-500 text-sm">Select your service and schedule a time that fits your calendar via our form or phone.</p>
+                    </div>
+                    <div class="bg-white p-6">
+                        <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-brand-100 shadow-sm text-brand-600 font-bold text-xl">2</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">We Clean</h4>
+                        <p class="text-gray-500 text-sm">Our fully equipped, vetted team arrives and performs the service to high standards.</p>
+                    </div>
+                    <div class="bg-white p-6">
+                        <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-brand-100 shadow-sm text-brand-600 font-bold text-xl">3</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">You Relax</h4>
+                        <p class="text-gray-500 text-sm">Enjoy your pristine space. We only leave when you are 100% satisfied.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div class="max-w-2xl">
+                        <h2 class="text-brand-600 font-bold uppercase tracking-wide text-sm mb-2">Our Services</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Comprehensive Care for Your Space</h3>
+                    </div>
+                    <a href="#contact" class="hidden md:inline-flex items-center text-brand-600 font-semibold hover:text-brand-700 transition">
+                        View Pricing Plans <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
                 </div>
 
-                <div class="max-w-3xl mx-auto">
-                    <!-- Tool 1: AI Stain Buster -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl border-t-4 border-blue-500">
-                        <div class="flex items-center mb-6">
-                            <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">AI Stain Buster</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Home Cleaning">
                         </div>
-                        <p class="text-gray-600 mb-6">Spilled something? Tell us what happened (e.g., "Red wine on white wool rug") and our AI expert will give you immediate first-aid steps.</p>
-                        
-                        <div class="space-y-4">
-                            <textarea id="stain-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="2" placeholder="Describe your spill or stain..."></textarea>
-                            <button id="stain-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
-                                <span>Get Cleaning Advice</span>
-                                <span>✨</span>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Residential Cleaning</h4>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Regular or deep cleaning for apartments and homes. We handle dusting, vacuuming, and sanitizing kitchens and bathrooms.</p>
+                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Residential Cleaning">
+                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
-                        
-                        <div id="stain-result" class="mt-6 hidden p-4 bg-blue-50 rounded-lg border border-blue-100">
-                            <h4 class="font-semibold text-blue-800 mb-2">Expert Advice:</h4>
-                            <div id="stain-content" class="text-gray-700 text-sm whitespace-pre-line"></div>
+                    </div>
+
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Office Cleaning">
+                        </div>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Commercial Cleaning</h4>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Janitorial services for offices, retail, and corporate spaces. Create a productive environment for your team.</p>
+                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Commercial Cleaning">
+                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Why Choose Us Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="lg:text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Why Abuja Chooses KazKleen?</h2>
-                    <p class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900">
-                        The Clear Choice for a Better Space
-                    </p>
-                </div>
-
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
-                    <!-- Feature 1 -->
-                    <div class="text-center">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mx-auto">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Post Construction">
                         </div>
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Trusted & Vetted Pros</h3>
-                        <p class="mt-2 text-gray-600">Local knowledge of Abuja areas and cleaning requirements, familiar with Abuja homes and offices</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div class="text-center">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mx-auto">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16v4m-2-2h4m5 11v4m-2-2h4M12 3v10m0 0v10m0-10l5-5m-5 5l-5 5"></path></svg>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Post-Construction</h4>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Heavy-duty cleaning to remove dust, paint splatter, and debris after renovations or new builds.</p>
+                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Post Construction Cleaning">
+                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
                         </div>
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Dual Expertise</h3>
-                        <p class="mt-2 text-gray-600">Why hire two companies? We masterfully combine elite cleaning with creative interior design.</p>
                     </div>
-                    <!-- Feature 3 -->
-                    <div class="text-center">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mx-auto">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Wardrobe Management">
                         </div>
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Eco-Friendly & Safe</h3>
-                        <p class="mt-2 text-gray-600">We use high-quality, eco-friendly cleaning products that are safe for your family, pets, and the planet.</p>
+                        <div class="p-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-xl font-bold text-gray-900">Wardrobe Organization</h4>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded font-semibold">NEW</span>
+                            </div>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Expert folding, sorting, and arranging of your wardrobe. We bring order to chaos and maximize your storage space.</p>
+                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Wardrobe Organization">
+                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- CTA Section -->
-        <section class="bg-blue-600">
-            <div class="max-w-4xl mx-auto text-center py-16 px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                    Ready to transform your space?
-                </h2>
-                <p class="mt-4 text-lg leading-6 text-blue-100">
-                    Let's get started. Contact us today for a free, no-obligation quote.
-                </p>
-                <a href="#contact" class="mt-8 inline-block bg-white text-blue-600 font-medium py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
-                    Get Your Free Quote
-                </a>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                    <!-- Contact Info -->
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
-                            Get in Touch
-                        </h2>
-                        <p class="mt-4 text-xl text-gray-600">
-                            We'd love to hear from you! Whether you have a question or are ready to book, reach out and we'll get back to you soon.
-                        </p>
-                        <div class="mt-8 space-y-4">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.06 11.06 0 006.313 6.313l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                </div>
-                                <div class="ml-3">
-                                    <h3 class="text-lg font-medium text-gray-900">Phone</h3>
-                                    <p class="text-gray-600">+234 904 604 2275</p>
-                                </div>
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://plus.unsplash.com/premium_photo-1661664150532-6028a3064e40?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Fumigation">
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-xl font-bold text-gray-900">Fumigation Services</h4>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded font-semibold">NEW</span>
                             </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                </div>
-                                <div class="ml-3">
-                                    <h3 class="text-lg font-medium text-gray-900">Email</h3>
-                                    <p class="text-gray-600">hello@kazkleen.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                </div>
-                                <div class="ml-3">
-                                    <h3 class="text-lg font-medium text-gray-900">Address</h3>
-                                    <p class="text-gray-600">123 Clean St, Sparkle City, 10001</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Social Media Block -->
-                            <div class="pt-6 border-t border-gray-200">
-                                <h3 class="text-lg font-bold text-gray-900 mb-4">Follow Us</h3>
-                                <div class="flex space-x-6">
-                                    <!-- Instagram -->
-                                    <a href="https://www.instagram.com/kazkleen/?hl=en" target="_blank" class="group flex flex-col items-center">
-                                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 flex items-center justify-center shadow-md transform transition group-hover:scale-110">
-                                            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                        </div>
-                                    </a>
-
-                                    <!-- TikTok -->
-                                    <a href="https://tiktok.com" target="_blank" class="group flex flex-col items-center">
-                                        <img src="tik_tok.png" alt="TikTok" class="w-12 h-12 rounded-full shadow-md transform transition group-hover:scale-110 object-cover">
-                                    </a>
-
-                                    <!-- Threads -->
-                                    <a href="https://threads.net" target="_blank" class="group flex flex-col items-center">
-                                        <img src="threads.png" alt="Threads" class="w-12 h-12 rounded-full shadow-md transform transition group-hover:scale-110 object-cover">
-                                    </a>
-
-                                    <!-- WhatsApp -->
-                                    <a href="https://wa.me/2349046042275" target="_blank" class="group flex flex-col items-center">
-                                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-md transform transition group-hover:scale-110">
-                                            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Professional pest control and fumigation. Safe, effective treatments to keep your property pest-free.</p>
+                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Fumigation">
+                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
                         </div>
                     </div>
                     
-                    <!-- Contact Form -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <form id="contact-form"  method="POST">
-                            <!-- FormSubmit Configuration -->
-                            <input type="hidden" name="_cc" value="kazkleen@gmail.com">
-                            <input type="hidden" name="_subject" value="New Quote Request - KazKleen Website">
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1527515637-62da857c5a71?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Deep Cleaning">
+                        </div>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Deep Cleaning</h4>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Intensive sanitization for move-ins, move-outs, or seasonal refreshing. We reach the hidden corners.</p>
+                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Deep Cleaning">
+                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-gray-900 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-500 rounded-full opacity-20 filter blur-3xl"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <span class="bg-gray-700 text-gray-200 text-xs px-2 py-1 rounded uppercase tracking-widest font-semibold">Coming Soon</span>
+                    <h2 class="mt-3 text-3xl font-bold">Interior Decoration Services</h2>
+                    <p class="mt-2 text-gray-400 max-w-xl">We are expanding! Soon, KazKleen will offer full-service interior styling and decoration to complement our cleaning excellence.</p>
+                </div>
+                <button class="border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded-lg transition duration-300" onclick="alert('Thank you! We will notify you when Interior Decoration launches.')">
+                    Notify Me When Available
+                </button>
+            </div>
+        </section>
+
+        <section id="ai-assistant" class="py-20 bg-gradient-to-br from-indigo-50 to-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-indigo-600 font-semibold tracking-wider text-sm uppercase">Smart Helper</span>
+                    <h2 class="text-3xl font-bold text-gray-900 mt-2">Free AI Stain Expert</h2>
+                    <p class="text-gray-500 mt-2">Describe a stain, and our AI will tell you how to treat it immediately.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl border border-indigo-100 p-6 sm:p-8">
+                    <div class="flex gap-4">
+                        <textarea id="stain-input" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:bg-white transition resize-none" rows="2" placeholder="e.g. Red wine on a white wool carpet..."></textarea>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button id="stain-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            Analyze Stain
+                        </button>
+                    </div>
+                    <div id="stain-result" class="hidden mt-6 p-4 bg-indigo-50 rounded-lg border border-indigo-100 text-gray-700 text-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Expert Recommendation:</h4>
+                        <div id="stain-content" class="leading-relaxed"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Request a Quote</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Ready to experience the KazKleen difference? Fill out the form, and our team will provide a tailored estimate for your specific needs within 24 hours.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-brand-50 p-3 rounded-lg text-brand-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.06 11.06 0 006.313 6.313l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-bold text-gray-900">Phone Support</h3>
+                                    <p class="text-gray-500">+234 904 604 2275</p>
+                                    <p class="text-xs text-gray-400 mt-1">Mon - Sat, 8am - 6pm</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-brand-50 p-3 rounded-lg text-brand-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-bold text-gray-900">Email</h3>
+                                    <p class="text-gray-500">hello@kazkleen.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 pt-8 border-t border-gray-100">
+                            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-4">Follow us</p>
+                            <div class="flex space-x-4">
+                                <a href="https://www.instagram.com/kazkleen/?hl=en" target="_blank" class="text-gray-400 hover:text-brand-600 transition">Instagram</a>
+                                <a href="#" class="text-gray-400 hover:text-brand-600 transition">TikTok</a>
+                                <a href="https://wa.me/2349046042275" target="_blank" class="text-gray-400 hover:text-brand-600 transition">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-inner border border-gray-200">
+                        <form id="contact-form">
+                            <input type="hidden" name="_subject" value="New KazKleen Quote Request">
                             <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="_captcha" value="false">
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                </div>
-                                <div>
-                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                </div>
-                                <!-- Optional Phone Number Field -->
-                                <div class="sm:col-span-2">
-                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number <span class="text-gray-400 font-normal">(Optional)</span></label>
-                                    <input type="tel" name="phone" id="phone" autocomplete="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                </div>
 
-                                <div class="sm:col-span-2">
-                                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input id="email" name="email" type="email" autocomplete="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                                    <input type="text" name="first-name" required class="w-full px-4 py-3 rounded-lg border-gray-300 bg-white border shadow-sm focus:border-brand-500 focus:ring-brand-500 transition">
                                 </div>
-                                <div class="sm:col-span-2">
-                                    <label for="service-interest" class="block text-sm font-medium text-gray-700">Service of Interest</label>
-                                    <select id="service-interest" name="service-interest" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white">
-                                        <option value="">Please select</option>
-                                        <option value="Residential Cleaning">Residential Cleaning</option>
-                                        <option value="Commercial Cleaning">Commercial Cleaning</option>
-                                        <option value="Post Construction Cleaning">Post Construction Cleaning</option>
-                                        <option value="Deep Cleaning & Sanitization">Deep Cleaning & Sanitization</option>
-                                        <option value="Design Consultation">Design Consultation</option>
-                                        <option value="Full Room Makeover">Full Room Makeover</option>
-                                        <option value="Home Staging">Home Staging</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="sm:col-span-2">
-                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                    <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" name="last-name" required class="w-full px-4 py-3 rounded-lg border-gray-300 bg-white border shadow-sm focus:border-brand-500 focus:ring-brand-500 transition">
                                 </div>
                             </div>
-                            <div class="mt-6">
-                                <button type="submit" id="submit-btn" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-lg text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                                    Send Message
-                                </button>
+
+                            <div class="mb-6">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border-gray-300 bg-white border shadow-sm focus:border-brand-500 focus:ring-brand-500 transition">
                             </div>
+
+                            <div class="mb-6">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Service Needed</label>
+                                <select id="service-interest" name="service" class="w-full px-4 py-3 rounded-lg border-gray-300 bg-white border shadow-sm focus:border-brand-500 focus:ring-brand-500 transition">
+                                    <option value="">Select a Service</option>
+                                    <option value="Residential Cleaning">Residential Cleaning</option>
+                                    <option value="Commercial Cleaning">Commercial Cleaning</option>
+                                    <option value="Post Construction">Post Construction</option>
+                                    <option value="Wardrobe Organization">Wardrobe Organization</option>
+                                    <option value="Fumigation">Fumigation</option>
+                                    <option value="Deep Cleaning">Deep Cleaning</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Details / Address</label>
+                                <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-lg border-gray-300 bg-white border shadow-sm focus:border-brand-500 focus:ring-brand-500 transition"></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="w-full bg-brand-600 text-white font-bold py-4 rounded-lg hover:bg-brand-700 transition duration-300 shadow-md transform active:scale-95">
+                                Send Request
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -486,261 +478,135 @@
 
     </main>
 
-    <!-- Success Toast Notification (Fixed at bottom right) -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl transform transition-all duration-300 translate-y-20 opacity-0 z-50 flex items-center gap-3">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <div>
-            <h4 class="font-bold">Message Sent!</h4>
-            <p class="text-sm">Someone will get back to you shortly.</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Company -->
-                <div class="col-span-2 md:col-span-1">
-                    <a href="#" class="text-3xl font-extrabold text-white">
-                        KazKleen
-                    </a>
-                    <p class="mt-4 text-gray-400">Your partner in creating clean, beautiful, and inspiring spaces across Abuja.</p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Quick Links</h4>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="#home" class="hover:text-white">Home</a></li>
-                        <li><a href="#services" class="hover:text-white">Services</a></li>
-                        <li><a href="#about" class="hover:text-white">About Us</a></li>
-                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Services -->
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Our Services</h4>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="#services" class="hover:text-white">Cleaning</a></li>
-                        <li><a href="#services" class="hover:text-white">Decoration</a></li>
-                        <li><a href="#services" class="hover:text-white">Home Staging</a></li>
-                        <li><a href="#services" class="hover:text-white">Commercial</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Connect -->
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Connect</h4>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="https://www.tiktok.com/@kazkleen?is_from_webapp=1&sender_device=pc" class="hover:text-white">Tik Tok</a></li>
-                        <li><a href="https://www.instagram.com/kazkleen/?hl=en" class="hover:text-white">Instagram</a></li>
-                        <li><a href="https://www.threads.com/@kazkleen" class="hover:text-white">Threads</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="text-2xl font-bold text-white tracking-tight">Kaz<span class="text-brand-500">Kleen</span></span>
+                <p class="text-sm text-gray-500 mt-2">&copy; 2025 KazKleen Services. All rights reserved. Designed by Pyrexx</p>
             </div>
-            
-            <!-- Bottom Bar -->
-            <div class="mt-12 border-t border-gray-700 pt-8 text-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2025 KazKleen.com. All rights reserved.
-                </p>
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-medium">
+                <a href="#home" class="hover:text-white transition">Home</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu and Tabs -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl transform translate-y-24 opacity-0 transition-all duration-500 flex items-center gap-3 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <div>
+            <h4 class="font-bold">Message Sent</h4>
+            <p class="text-xs text-green-100">We will contact you shortly.</p>
+        </div>
+    </div>
+
     <script>
-        const apiKey = "AIzaSyAA1bavg316K09wqvpgR6_LnEA83kmfrcY"; 
-
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Contact Form AJAX Logic ---
-            const contactForm = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-            const toast = document.getElementById('toast');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Stop the page from redirecting
-
-                    // 1. Change Button State to Loading
-                    const originalBtnText = submitBtn.innerText;
-                    submitBtn.innerText = 'Sending...';
-                    submitBtn.disabled = true;
-
-                    // 2. Gather Data
-                    const formData = new FormData(contactForm);
-
-                    // 3. Send via Fetch (AJAX)
-                    fetch("https://formsubmit.co/ajax/hello@kazkleen.com", {
-                        method: "POST",
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        // 4. Success Handling
-                        contactForm.reset(); // Clear the form
-                        showToast(); // Show success message
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert("There was an error sending your message. Please try again or email us directly.");
-                    })
-                    .finally(() => {
-                        // 5. Reset Button
-                        submitBtn.innerText = originalBtnText;
-                        submitBtn.disabled = false;
-                    });
-                });
-            }
-
-            function showToast() {
-                // Remove hidden state classes
-                toast.classList.remove('translate-y-20', 'opacity-0');
-                
-                // Hide after 5 seconds
-                setTimeout(() => {
-                    toast.classList.add('translate-y-20', 'opacity-0');
-                }, 5000);
-            }
-
-            // Mobile Menu Toggle
-            const menuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            menuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Tab Functionality
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const tabName = button.getAttribute('data-tab');
-                    
-                    // Deactivate all buttons
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('tab-active');
-                    });
-                    
-                    // Activate clicked button
-                    button.classList.add('tab-active');
-                    
-                    // Hide all content
-                    tabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-                    
-                    // Show target content
-                    document.getElementById(tabName).classList.remove('hidden');
-                });
-            });
-            
-            // --- Request Service Button Logic (New) ---
-            const requestButtons = document.querySelectorAll('.request-service-btn');
-            const serviceSelect = document.getElementById('service-interest');
-            const messageField = document.getElementById('message');
-
-            requestButtons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    const serviceName = btn.getAttribute('data-service');
-                    
-                    // Scroll to contact form
-                    document.getElementById('contact').scrollIntoView({ 
-                        behavior: 'smooth' 
-                    });
-
-                    // Update Select Box
-                    if (serviceSelect) {
-                        serviceSelect.value = serviceName;
-                        // Flash the select box briefly to indicate change
-                        serviceSelect.classList.add('ring-2', 'ring-blue-500');
-                        setTimeout(() => serviceSelect.classList.remove('ring-2', 'ring-blue-500'), 1000);
-                    }
-
-                    // Focus message field
-                    if (messageField) {
-                        messageField.focus();
-                    }
-                });
-            });
-
-            // --- GEMINI API INTEGRATION ---
-
-            async function callGeminiAPI(prompt) {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                const payload = {
-                    contents: [{ parts: [{ text: prompt }] }]
-                };
-
-                // Exponential backoff
-                const delays = [1000, 2000, 4000, 8000, 16000];
-                
-                for (let i = 0; i <= 5; i++) {
-                    try {
-                        const response = await fetch(url, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (!response.ok) {
-                            if (response.status === 429 && i < 5) {
-                                await new Promise(resolve => setTimeout(resolve, delays[i]));
-                                continue;
-                            }
-                            throw new Error(`API Error: ${response.status}`);
-                        }
-
-                        const data = await response.json();
-                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "I couldn't generate a response. Please try again.";
-                    } catch (error) {
-                        if (i === 5) throw error;
-                    }
-                }
-            }
-
-            // AI Stain Buster Logic
-            const stainBtn = document.getElementById('stain-btn');
-            const stainInput = document.getElementById('stain-input');
-            const stainResult = document.getElementById('stain-result');
-            const stainContent = document.getElementById('stain-content');
-
-            if (stainBtn) {
-                stainBtn.addEventListener('click', async () => {
-                    const userQuery = stainInput.value.trim();
-                    if (!userQuery) return;
-
-                    // UI Loading State
-                    stainBtn.disabled = true;
-                    stainBtn.innerHTML = '<span class="spinner"></span> Analysis in progress...';
-                    stainResult.classList.add('hidden');
-
-                    const systemPrompt = `You are a professional cleaning expert for KazKleen. The user has a stain or cleaning issue described as: "${userQuery}". 
-                    Provide a concise, safe, step-by-step guide to cleaning it. Use bullet points. 
-                    If the request is dangerous or not about cleaning, polite refuse. Keep it under 100 words.`;
-
-                    try {
-                        const response = await callGeminiAPI(systemPrompt);
-                        stainContent.innerText = response;
-                        stainResult.classList.remove('hidden');
-                    } catch (error) {
-                        stainContent.innerText = "Sorry, our cleaning expert is offline right now. Please contact us directly.";
-                        stainResult.classList.remove('hidden');
-                    } finally {
-                        stainBtn.disabled = false;
-                        stainBtn.innerHTML = '<span>Get Cleaning Advice</span><span>✨</span>';
-                    }
-                });
-            }
+        // --- Preloader Logic ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
         });
+
+        // --- SEO-Safe AJAX Form Handling ---
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const toast = document.getElementById('toast');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Stop redirection
+
+                // Loading State
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+
+                const formData = new FormData(contactForm);
+
+                fetch("https://formsubmit.co/ajax/hello@kazkleen.com", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    contactForm.reset();
+                    showToast();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Something went wrong. Please try contacting us via WhatsApp or Phone.");
+                })
+                .finally(() => {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            });
+        }
+
+        function showToast() {
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 5000);
+        }
+
+        // --- Request Button Logic ---
+        document.querySelectorAll('.request-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const service = btn.dataset.service;
+                const select = document.getElementById('service-interest');
+                select.value = service;
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // --- Mobile Menu Toggle ---
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Gemini AI Integration (Preserved) ---
+        const apiKey = "AIzaSyAA1bavg316K09wqvpgR6_LnEA83kmfrcY"; 
+        const stainBtn = document.getElementById('stain-btn');
+        
+        async function callGemini(prompt) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+            });
+            const data = await response.json();
+            return data.candidates?.[0]?.content?.parts?.[0]?.text || "Error retrieving advice.";
+        }
+
+        if(stainBtn) {
+            stainBtn.addEventListener('click', async () => {
+                const input = document.getElementById('stain-input').value;
+                if(!input) return;
+                
+                stainBtn.disabled = true;
+                stainBtn.innerText = "Analyzing...";
+                
+                try {
+                    const prompt = `You are a cleaning expert for KazKleen. Briefly explain how to clean this stain: "${input}". strict limit 50 words.`;
+                    const result = await callGemini(prompt);
+                    document.getElementById('stain-content').innerText = result;
+                    document.getElementById('stain-result').classList.remove('hidden');
+                } catch(e) {
+                    alert("AI Service currently unavailable.");
+                } finally {
+                    stainBtn.disabled = false;
+                    stainBtn.innerHTML = `Analyze Stain`;
+                }
+            });
+        }
     </script>
 </body>
 </html>
