@@ -259,7 +259,7 @@
                     
                     <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Home Cleaning">
+                            <img src="images/IMG_2155.PNG" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Home Cleaning">
                         </div>
                         <div class="p-8">
                             <h4 class="text-xl font-bold text-gray-900 mb-3">Residential Cleaning</h4>
@@ -272,7 +272,7 @@
 
                     <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Office Cleaning">
+                            <img src="images/IMG_2179.PNG" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Office Cleaning">
                         </div>
                         <div class="p-8">
                             <h4 class="text-xl font-bold text-gray-900 mb-3">Commercial Cleaning</h4>
@@ -284,17 +284,20 @@
                     </div>
 
                     <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" alt="Post Construction">
-                        </div>
-                        <div class="p-8">
-                            <h4 class="text-xl font-bold text-gray-900 mb-3">Post-Construction</h4>
-                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Heavy-duty cleaning to remove dust, paint splatter, and debris after renovations or new builds.</p>
-                            <button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Post Construction Cleaning">
-                                Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </button>
-                        </div>
-                    </div>
+						<div class="h-48 overflow-hidden">
+							<img id="rotatingImage" 
+								 src="images/IMG_2160.PNG" 
+								 class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" 
+								 alt="Post Construction">
+						</div>
+						<div class="p-8">
+							<h4 class="text-xl font-bold text-gray-900 mb-3">Post-Construction</h4>
+							<p class="text-gray-600 mb-6 text-sm leading-relaxed">Heavy-duty cleaning to remove dust, paint splatter, and debris after renovations or new builds.</p>
+							<button class="request-btn text-brand-600 font-semibold text-sm uppercase tracking-wide flex items-center group-hover:gap-2 transition-all" data-service="Post Construction Cleaning">
+								Book Now <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+							</button>
+						</div>
+					</div>
 
                     <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div class="h-48 overflow-hidden">
@@ -563,6 +566,18 @@
     </div>
 
     <script>
+		const images = [
+			'images/IMG_2160.PNG',
+			'images/IMG_2161.PNG'
+		];
+		let currentIndex = 0;
+		const imgElement = document.getElementById('rotatingImage');
+
+		setInterval(() => {
+			currentIndex = (currentIndex + 1) % images.length;
+			imgElement.src = images[currentIndex];
+		}, 3000); // change every 3 seconds
+		
         // --- Preloader Logic ---
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
