@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KazKleen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B1F2E',
+          mist: '#EAF6FF',
+          lav: '#E7ECFB',
+          brand: { 50:'#f0f9ff', 100:'#e0f2fe', 200:'#bae6fd', 300:'#7dd3fc', 500:'#0ea5e9', 600:'#0284c7', 700:'#0369a1', 800:'#075985', 900:'#0c4a6e' },
+          whats: '#25D366',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+        boxShadow: {
+          soft: '0 30px 70px -28px rgba(2,132,199,0.35)',
+          glass: '0 8px 30px -8px rgba(2,132,199,0.25)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root{ --brand:#0284C7; }
+  *{ -webkit-tap-highlight-color: transparent; }
+  html{ scroll-behavior: smooth; }
+  body{ background:#EAF6FF; }
+
+  a:focus, button:focus, [tabindex]:focus, input:focus, textarea:focus{ outline:none; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .reveal{ opacity:0; transform: translateY(18px); }
+  .reveal.is-visible{ opacity:1; transform:none; transition: opacity .7s ease, transform .7s ease; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+
+  ::selection{ background:#0284C7; color:#fff; }
+
+  .glass{ background: rgba(255,255,255,.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border:1px solid rgba(255,255,255,.7); }
+  .glass-dark{ background: rgba(12,74,110,.55); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.12); }
+
+  .nav-pill{ transition: box-shadow .3s ease, background-color .3s ease; }
+
+  .whatsapp-ring{ animation: waRing 2.4s cubic-bezier(.4,0,.6,1) infinite; }
+  @keyframes waRing{ 0%{ box-shadow:0 0 0 0 rgba(37,211,102,.45);} 70%{ box-shadow:0 0 0 14px rgba(37,211,102,0);} 100%{ box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+
+  @keyframes floatSlow{ 0%,100%{ transform: translate(0,0);} 50%{ transform: translate(0,-22px);} }
+  .float-blob{ animation: floatSlow 14s ease-in-out infinite; }
+
+  .qc-item{ opacity:.35; transition: opacity .4s ease; }
+  .qc-item.on{ opacity:1; }
+  .qc-box{ transition: background-color .35s ease, border-color .35s ease; }
+  .qc-box.on{ background:#0284C7; border-color:#0284C7; }
+  .qc-check{ opacity:0; transform:scale(.4); transition: opacity .3s ease, transform .3s ease; }
+  .qc-check.on{ opacity:1; transform:scale(1); }
+  #qcStamp{ opacity:0; transform: scale(.7) rotate(-10deg); transition: opacity .5s ease, transform .5s cubic-bezier(.34,1.56,.64,1); }
+  #qcStamp.on{ opacity:1; transform: scale(1) rotate(-10deg); }
+
+  .est-pill{ transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+  .tool-tab{ transition: background-color .2s ease, color .2s ease; }
+</style>
+</head>
+<body class="font-sans text-ink antialiased relative">
+
+<!-- Ambient pastel glass backdrop -->
+<div class="fixed inset-0 -z-10 overflow-hidden bg-mist">
+  <div class="float-blob absolute -top-40 -left-32 w-[560px] h-[560px] rounded-full bg-brand-300/50 blur-[100px]"></div>
+  <div class="float-blob absolute top-1/3 -right-44 w-[520px] h-[520px] rounded-full bg-lav blur-[110px]" style="animation-delay:-6s;"></div>
+  <div class="float-blob absolute bottom-0 left-1/4 w-[480px] h-[480px] rounded-full bg-brand-200/60 blur-[100px]" style="animation-delay:-3s;"></div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="fixed top-3 sm:top-5 inset-x-0 z-50 px-3 sm:px-6">
+  <nav id="nav" class="nav-pill glass max-w-6xl mx-auto flex items-center justify-between gap-4 rounded-full px-4 sm:px-6 py-2.5 shadow-glass">
+    <a href="#home" class="flex items-center gap-2 shrink-0">
+      <span class="font-display text-lg tracking-tight text-ink">KazKleen</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/70">
+      <a href="#proof" class="hover:text-brand-700 transition">Our Standard</a>
+      <a href="#services" class="hover:text-brand-700 transition">Services</a>
+      <a href="#process" class="hover:text-brand-700 transition">Process</a>
+      <a href="#reviews" class="hover:text-brand-700 transition">Reviews</a>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a href="#contact" class="hidden sm:inline-flex items-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow-glass">
+        Get a Quote
+      </a>
+      <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/40 transition">
+        <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden glass max-w-6xl mx-auto mt-2 rounded-3xl shadow-glass px-6 py-5 flex flex-col gap-1 text-ink/80 font-medium">
+    <a href="#proof" class="py-2.5 border-b border-white/40">Our Standard</a>
+    <a href="#services" class="py-2.5 border-b border-white/40">Services</a>
+    <a href="#process" class="py-2.5 border-b border-white/40">Process</a>
+    <a href="#reviews" class="py-2.5 border-b border-white/40">Reviews</a>
+    <a href="#contact" class="mt-3 text-center bg-brand-600 text-white font-semibold px-5 py-3 rounded-full">Get a Quote</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative pt-36 sm:pt-44 pb-20 sm:pb-28 px-4 sm:px-6 overflow-hidden">
+  <div class="relative max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-6 reveal">
+      <div class="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700 glass px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+        Abuja · Residential &amp; Commercial
+      </div>
+
+      <h1 class="font-display font-medium text-[2.6rem] leading-[1.05] sm:text-6xl sm:leading-[1.03] text-ink">
+        Beyond clean.<br>
+        <span class="italic text-brand-600">Beyond compare.</span>
+      </h1>
+
+      <p class="mt-6 text-lg text-ink/60 max-w-md leading-relaxed">
+        We treat every room like it's the one being inspected — because to us, it is. Deep cleaning, fumigation and organisation for homes and offices across Abuja, done by a vetted, insured team.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#contact" class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-7 py-3.5 rounded-full shadow-soft hover:bg-brand-700 transition">
+          Get a Free Quote
+        </a>
+        <a href="#proof" class="inline-flex items-center gap-2 text-ink font-semibold px-2 py-3.5 group">
+          See our standard
+          <svg class="w-4 h-4 transition group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-white/60 flex flex-wrap gap-x-8 gap-y-3">
+        <div class="flex items-center gap-2 text-sm text-ink/55">
+          <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Insured &amp; vetted team
+        </div>
+        <div class="flex items-center gap-2 text-sm text-ink/55">
+          <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Same-day response
+        </div>
+        <div class="flex items-center gap-2 text-sm text-ink/55">
+          <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+          Eco-conscious products
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo collage, glass-framed -->
+    <div class="lg:col-span-6 relative h-[420px] sm:h-[480px] reveal" style="transition-delay:.15s">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=900&auto=format&fit=crop"
+           alt="Bright, freshly cleaned living room in an Abuja home"
+           class="absolute top-0 right-0 w-[78%] h-[70%] object-cover rounded-[28px] shadow-soft rotate-[2deg] border-4 border-white/70">
+      <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=700&auto=format&fit=crop"
+           alt="Neatly organised wardrobe after a KazKleen decluttering session"
+           class="absolute bottom-0 left-0 w-[52%] h-[46%] object-cover rounded-[24px] shadow-glass -rotate-[3deg] border-4 border-white/70">
+      <div class="absolute bottom-6 right-4 sm:right-10 glass rounded-2xl shadow-glass px-5 py-4 max-w-[190px] rotate-[1.5deg]">
+        <p class="font-display text-2xl text-brand-700 leading-none">500+</p>
+        <p class="text-xs text-ink/60 mt-1">spaces transformed across Abuja</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUR STANDARD (replaces before/after slider) ================= -->
+<section id="proof" class="px-4 sm:px-6 py-20 sm:py-28">
+  <div class="max-w-2xl mx-auto text-center reveal">
+    <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700">Our quality standard</p>
+    <h2 class="font-display font-medium text-4xl sm:text-5xl mt-3 text-ink">The clipboard that leaves with every job</h2>
+    <p class="mt-4 text-ink/55 max-w-lg mx-auto">Every KazKleen visit runs the same inspection before we call it finished. Watch it check itself off — then ask for your signed copy.</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto mt-14 relative reveal">
+    <div id="qcCard" class="glass relative rounded-[32px] shadow-soft px-6 sm:px-12 pt-12 pb-10">
+      <!-- clip -->
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-brand-600 rounded-b-2xl shadow-glass"></div>
+      <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white border-4 border-brand-600"></div>
+
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <p class="font-display text-xl text-ink">12-Point Inspection</p>
+          <p class="text-xs text-ink/45 font-mono tracking-wide">FORM KK-QC · EVERY VISIT</p>
+        </div>
+        <span class="hidden sm:inline-flex text-xs font-semibold text-brand-700 bg-brand-100/70 px-3 py-1.5 rounded-full">Included, always</span>
+      </div>
+
+      <div id="qcList" class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+        <!-- items injected identically in markup for no-JS fallback -->
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Skirting boards &amp; baseboards wiped</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Light switches &amp; handles sanitised</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Under furniture reached, not just around it</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Kitchen surfaces degreased</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Bathroom tiles &amp; grout scrubbed</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Mirrors &amp; windows left streak-free</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Trash emptied, liners replaced</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Carpets vacuumed in two directions</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Cushions &amp; throws straightened</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Cobwebs cleared from corners &amp; ceiling lines</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Fixtures polished — taps, handles, rails</span></div>
+        <div class="qc-item flex items-center gap-3"><span class="qc-box w-7 h-7 rounded-full border-2 border-brand-300 flex items-center justify-center shrink-0"><svg class="qc-check w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span class="text-sm text-ink/70">Final walk-through with you before we leave</span></div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-white/60 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-ink/40">Signed off by</p>
+          <p class="font-display italic text-lg text-ink/70">Lead Technician</p>
+        </div>
+        <svg class="w-24 h-8 text-brand-700/50" viewBox="0 0 100 30" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M2 22c8-14 14-14 18-4 3 7 6 7 10-2 3-8 7-10 12-2 4 7 8 7 12-3 3-7 7-9 11-3 3 5 7 6 10 2"/></svg>
+      </div>
+
+      <!-- Stamp -->
+      <div id="qcStamp" class="absolute -top-6 -right-3 sm:-right-8 w-24 h-24 rounded-full glass flex flex-col items-center justify-center shadow-glass border-2 border-brand-600">
+        <span class="text-[9px] font-bold tracking-widest text-brand-700">VERIFIED</span>
+        <svg class="w-5 h-5 text-brand-600 my-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <span class="text-[8px] text-brand-700/70">KazKleen QC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES (BENTO) ================= -->
+<section id="services" class="px-4 sm:px-6 py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 reveal">
+      <div class="max-w-lg">
+        <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700">What we do</p>
+        <h2 class="font-display font-medium text-4xl sm:text-5xl mt-3 text-ink">One team, every kind of clean.</h2>
+      </div>
+      <p class="text-ink/55 max-w-xs">From a single bedroom to a full office floor — pick a service, or tell us what's bothering you and we'll scope it.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-5 reveal">
+      <div class="md:col-span-2 md:row-span-2 group relative rounded-[28px] overflow-hidden shadow-glass min-h-[280px]">
+        <img src="https://images.unsplash.com/photo-1558317374-a3545eca46f2?q=80&w=1000&auto=format&fit=crop" alt="Residential cleaning of a home living space" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-900/85 via-brand-900/15 to-transparent"></div>
+        <div class="absolute bottom-0 p-7">
+          <h3 class="font-display text-2xl text-white">Residential Cleaning</h3>
+          <p class="text-white/75 text-sm mt-2 max-w-xs">Weekly, bi-weekly, or one-off deep cleans for homes and apartments — kitchens and bathrooms included, always.</p>
+        </div>
+      </div>
+
+      <div class="group relative rounded-[28px] overflow-hidden shadow-glass min-h-[130px]">
+        <div class="absolute inset-0" style="background: radial-gradient(120% 100% at 100% 0%, #0284C7 0%, #0C4A6E 100%);"></div>
+        <div class="relative p-6 flex flex-col justify-between h-full">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H3m16 0h2M5 21H3m8-10h.01M11 15h.01"/></svg>
+          <div>
+            <h3 class="font-display text-xl text-white">Commercial</h3>
+            <p class="text-white/60 text-xs mt-1">Offices &amp; retail, before opening hours.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative rounded-[28px] overflow-hidden shadow-glass min-h-[130px]">
+        <img src="https://images.unsplash.com/photo-1527515637-62da857c5a71?q=80&w=800&auto=format&fit=crop" alt="Post-construction deep cleaning" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-brand-900/45"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-display text-xl text-white">Post-Construction</h3>
+          <p class="text-white/70 text-xs mt-1">Dust, paint splatter &amp; debris — gone.</p>
+        </div>
+      </div>
+
+      <div class="group relative rounded-[28px] overflow-hidden shadow-glass min-h-[190px]">
+        <img src="https://images.unsplash.com/premium_photo-1661664150532-6028a3064e40?q=80&w=800&auto=format&fit=crop" alt="Professional fumigation and pest control" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-brand-900/40"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-display text-xl text-white">Fumigation</h3>
+          <p class="text-white/70 text-xs mt-1">Safe, effective pest control.</p>
+        </div>
+      </div>
+
+      <div class="group relative rounded-[28px] overflow-hidden shadow-glass min-h-[190px]">
+        <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=800&auto=format&fit=crop" alt="Rug and upholstery washing" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-brand-900/40"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-display text-xl text-white">Rug &amp; Upholstery</h3>
+          <p class="text-white/70 text-xs mt-1">Carpets &amp; sofas, revitalised.</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 relative rounded-[28px] overflow-hidden glass shadow-glass min-h-[190px] p-7 flex flex-col justify-between">
+        <div>
+          <h3 class="font-display text-xl text-ink">Specialty Projects</h3>
+          <p class="text-ink/60 text-sm mt-1 max-w-xs">Decluttering &amp; organisation, plus fast, discreet after-party cleanup.</p>
+        </div>
+        <a href="#contact" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:gap-2.5 transition-all">
+          Ask about your project
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process" class="px-4 sm:px-6 py-20 sm:py-28">
+  <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+    <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700">How it works</p>
+    <h2 class="font-display font-medium text-4xl sm:text-5xl mt-3 text-ink">Three steps to spotless</h2>
+  </div>
+
+  <div class="max-w-3xl mx-auto relative reveal">
+    <div class="absolute left-6 top-2 bottom-2 w-px bg-brand-200 hidden sm:block"></div>
+
+    <div class="flex gap-6 sm:gap-8 pb-12">
+      <div class="shrink-0 w-12 h-12 rounded-full glass border-2 border-brand-500 flex items-center justify-center font-display text-lg text-brand-700 relative z-10">01</div>
+      <div class="pt-1.5">
+        <h3 class="font-semibold text-lg text-ink">Book</h3>
+        <p class="text-ink/55 mt-1 max-w-md">Tell us the space and what's bothering you — two minutes over WhatsApp, phone, or the form below.</p>
+      </div>
+    </div>
+
+    <div class="flex gap-6 sm:gap-8 pb-12">
+      <div class="shrink-0 w-12 h-12 rounded-full glass border-2 border-brand-500 flex items-center justify-center font-display text-lg text-brand-700 relative z-10">02</div>
+      <div class="pt-1.5">
+        <h3 class="font-semibold text-lg text-ink">We clean</h3>
+        <p class="text-ink/55 mt-1 max-w-md">A vetted, uniformed team arrives on time with our own kit and eco-conscious products — nothing borrowed from your cupboard.</p>
+      </div>
+    </div>
+
+    <div class="flex gap-6 sm:gap-8">
+      <div class="shrink-0 w-12 h-12 rounded-full glass border-2 border-brand-500 flex items-center justify-center font-display text-lg text-brand-700 relative z-10">03</div>
+      <div class="pt-1.5">
+        <h3 class="font-semibold text-lg text-ink">You relax</h3>
+        <p class="text-ink/55 mt-1 max-w-md">We walk the space with you before we leave. Nothing's finished until you say it is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="px-4 sm:px-6 py-16 sm:py-20 bg-brand-900 text-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-300">Why abuja trusts kazkleen</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl mt-3">Every technician is background-checked, uniformed, and trained on our own protocol.</h2>
+      <p class="text-white/55 mt-4 max-w-md">Not a subcontractor you've never met. We're bonded and insured, and we use eco-conscious products that are safe for kids, pets, and the planet.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-6 sm:gap-8 reveal">
+      <div>
+        <p class="font-display text-4xl sm:text-5xl text-brand-300"><span class="counter" data-target="500">0</span>+</p>
+        <p class="text-white/50 text-sm mt-2">jobs completed</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl sm:text-5xl text-brand-300"><span class="counter" data-target="5">0</span>hr</p>
+        <p class="text-white/50 text-sm mt-2">avg. response time</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl sm:text-5xl text-brand-300"><span class="counter" data-target="100">0</span>%</p>
+        <p class="text-white/50 text-sm mt-2">insured &amp; vetted staff</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl sm:text-5xl text-brand-300">100%</p>
+        <p class="text-white/50 text-sm mt-2">eco-conscious products</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="px-4 sm:px-6 py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-lg mb-12 reveal">
+      <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700">Recent work</p>
+      <h2 class="font-display font-medium text-4xl sm:text-5xl mt-3 text-ink">A peek inside the job bag.</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 reveal">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=700&auto=format&fit=crop" alt="Freshly cleaned bright living space" class="rounded-3xl object-cover w-full h-56 sm:h-72 col-span-1 border-4 border-white/60 shadow-glass">
+      <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=700&auto=format&fit=crop" alt="Organised wardrobe after decluttering" class="rounded-3xl object-cover w-full h-40 sm:h-52 mt-6 sm:mt-10 border-4 border-white/60 shadow-glass">
+      <img src="https://images.unsplash.com/photo-1558317374-a3545eca46f2?q=80&w=700&auto=format&fit=crop" alt="Freshly washed rug" class="rounded-3xl object-cover w-full h-56 sm:h-72 border-4 border-white/60 shadow-glass">
+      <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=700&auto=format&fit=crop" alt="Venue restored after an event" class="rounded-3xl object-cover w-full h-40 sm:h-52 mt-6 sm:mt-10 border-4 border-white/60 shadow-glass">
+    </div>
+    <p class="text-xs text-ink/40 mt-6">Shown for illustration — this section is where your real completed-job photo library will really shine.</p>
+  </div>
+</section>
+
+<!-- ================= FREE TOOLS (Stain Advice + Instant Estimate) ================= -->
+<section class="px-4 sm:px-6 py-20 sm:py-28">
+  <div class="max-w-3xl mx-auto reveal">
+    <div class="text-center mb-10">
+      <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700">Free tools</p>
+      <h2 class="font-display font-medium text-4xl sm:text-5xl mt-3 text-ink">Answers most companies make you call for.</h2>
+      <p class="text-ink/55 mt-3">Instant stain advice and a ballpark price — no phone call, no waiting on hold.</p>
+    </div>
+
+    <div class="glass rounded-[32px] shadow-soft p-6 sm:p-8">
+      <div class="flex justify-center mb-7">
+        <div class="inline-flex bg-white/60 rounded-full p-1 border border-white/70">
+          <button data-tab="stain" class="tool-tab active px-5 py-2 rounded-full text-sm font-semibold bg-brand-600 text-white">Stain Advice</button>
+          <button data-tab="estimate" class="tool-tab px-5 py-2 rounded-full text-sm font-semibold text-ink/55">Instant Estimate</button>
+        </div>
+      </div>
+
+      <!-- Stain Advice panel -->
+      <div id="panel-stain" class="tool-panel">
+        <label for="stainInput" class="sr-only">Describe your stain</label>
+        <textarea id="stainInput" rows="2" placeholder="e.g. red wine on a white wool rug…"
+          class="w-full p-4 bg-white/70 border border-white/80 rounded-2xl focus:ring-2 focus:ring-brand-500 focus:bg-white transition resize-none placeholder:text-ink/35"></textarea>
+        <div class="mt-4 flex justify-end">
+          <button id="stainBtn" class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-700 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span id="stainBtnText">Get instant advice</span>
+          </button>
+        </div>
+        <div id="stainResult" class="hidden mt-6 p-5 bg-brand-50/80 rounded-2xl border border-brand-100">
+          <p class="font-semibold text-brand-700 text-sm mb-1.5">Quick advice</p>
+          <p id="stainContent" class="text-ink/70 text-sm leading-relaxed"></p>
+        </div>
+      </div>
+
+      <!-- Instant Estimate panel -->
+      <div id="panel-estimate" class="tool-panel hidden">
+        <div class="grid sm:grid-cols-3 gap-5 mb-6">
+          <div>
+            <p class="text-xs font-semibold text-ink/50 mb-2">Property type</p>
+            <div id="estType" class="flex flex-wrap gap-2">
+              <button data-val="Apartment" class="est-pill active px-3.5 py-2 rounded-full text-xs font-semibold bg-brand-600 text-white">Apartment</button>
+              <button data-val="House" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">House</button>
+              <button data-val="Office" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">Office</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-ink/50 mb-2">Rooms</p>
+            <div id="estRooms" class="flex flex-wrap gap-2">
+              <button data-val="1" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">1</button>
+              <button data-val="2" class="est-pill active px-3.5 py-2 rounded-full text-xs font-semibold bg-brand-600 text-white">2</button>
+              <button data-val="3" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">3</button>
+              <button data-val="4" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">4</button>
+              <button data-val="5" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">5+</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-ink/50 mb-2">Service</p>
+            <div id="estService" class="flex flex-wrap gap-2">
+              <button data-val="standard" class="est-pill active px-3.5 py-2 rounded-full text-xs font-semibold bg-brand-600 text-white">Standard</button>
+              <button data-val="deep" class="est-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-white/70 text-ink/60 border border-white/80">Deep Clean</button>
+            </div>
+          </div>
+        </div>
+        <button id="estBtn" class="w-full inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3.5 rounded-full hover:bg-brand-700 transition">
+          Calculate my estimate
+        </button>
+        <div id="estResult" class="hidden mt-6 p-5 bg-brand-50/80 rounded-2xl border border-brand-100 text-center">
+          <p id="estPrice" class="font-display text-3xl text-brand-700">₦0</p>
+          <p id="estMeta" class="text-sm text-ink/55 mt-1"></p>
+        </div>
+        <p class="text-xs text-ink/40 mt-4 text-center">Ballpark only — ranges shown are illustrative. A technician confirms your final quote after a quick chat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="reviews" class="px-4 sm:px-6 py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-lg mb-12 reveal">
+      <p class="font-mono text-[11px] tracking-[0.18em] uppercase text-brand-700">What abuja is saying</p>
+      <h2 class="font-display font-medium text-4xl sm:text-5xl mt-3 text-ink">Real jobs, real feedback.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <figure class="md:col-span-2 bg-brand-600 text-white rounded-[28px] p-8 sm:p-10 shadow-soft flex flex-col justify-between min-h-[260px]">
+        <blockquote class="font-display text-2xl sm:text-3xl leading-snug">
+          "They moved my entire wardrobe, cleaned behind it, and put everything back better organised than I left it. I didn't lift a finger."
+        </blockquote>
+        <figcaption class="mt-6 text-white/70 text-sm">— Amaka O., Maitama <span class="mx-2">·</span> Residential Deep Clean</figcaption>
+      </figure>
+
+      <figure class="glass rounded-[28px] p-7 shadow-glass flex flex-col justify-between">
+        <blockquote class="text-ink/70 leading-relaxed">"Punctual, professional, and our office smelled fresh for days."</blockquote>
+        <figcaption class="mt-5 text-ink/40 text-sm">— Tunde A., Wuse II <span class="mx-1">·</span> Commercial</figcaption>
+      </figure>
+
+      <figure class="glass rounded-[28px] p-7 shadow-glass flex flex-col justify-between">
+        <blockquote class="text-ink/70 leading-relaxed">"Booked them the morning after a housewarming — venue looked untouched by 2pm."</blockquote>
+        <figcaption class="mt-5 text-ink/40 text-sm">— Fatima B., Guzape <span class="mx-1">·</span> After-Party Cleanup</figcaption>
+      </figure>
+    </div>
+    <p class="text-xs text-ink/40 mt-6">Illustrative quotes — swap in real client reviews (Google, Instagram DMs) for launch; genuine names and neighbourhoods build far more trust than polished copy.</p>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section id="contact" class="px-4 sm:px-6 py-24 bg-brand-900 text-white relative overflow-hidden">
+  <div class="pointer-events-none absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-brand-500/30 blur-3xl"></div>
+  <div class="relative max-w-3xl mx-auto text-center reveal">
+    <h2 class="font-display font-medium text-4xl sm:text-6xl">Ready for spotless?</h2>
+    <p class="mt-4 text-white/55 text-lg">Same-day quotes. No obligation, no pressure.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href="tel:+2349046042275" class="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-7 py-3.5 rounded-full hover:bg-brand-50 transition">
+        Call +234 904 604 2275
+      </a>
+      <a href="https://wa.me/2349046042275" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-whats text-white font-semibold px-7 py-3.5 rounded-full hover:brightness-95 transition">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.3-.6-.5-.5-.7-.5H8c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.1-1.4 0-.1-.2-.2-.5-.3zM12.1 21a9 9 0 01-4.6-1.3l-.3-.2-3.4.9.9-3.3-.2-.3A9 9 0 1112.1 21z"/></svg>
+        Message on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-ink text-white/65 px-4 sm:px-6 pt-16 pb-8">
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+    <div>
+      <span class="font-display text-xl text-white">KazKleen</span>
+      <p class="mt-3 text-sm max-w-xs">Premium residential and commercial cleaning, fumigation, and organisation — serving every district in Abuja.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="https://www.instagram.com/kazkleen/?hl=en" target="_blank" rel="noreferrer" aria-label="KazKleen on Instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 7a5 5 0 100 10 5 5 0 000-10zm6.4-1.845a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 9a3 3 0 110 6 3 3 0 010-6z"/></svg>
+        </a>
+        <a href="https://wa.me/2349046042275" target="_blank" rel="noreferrer" aria-label="Message KazKleen on WhatsApp" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.3-.6-.5-.5-.7-.5H8c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.1-1.4 0-.1-.2-.2-.5-.3zM12.1 21a9 9 0 01-4.6-1.3l-.3-.2-3.4.9.9-3.3-.2-.3A9 9 0 1112.1 21z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wide text-white/35 mb-4">Explore</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#proof" class="hover:text-white transition">Our Standard</a></li>
+        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+        <li><a href="#process" class="hover:text-white transition">Process</a></li>
+        <li><a href="#reviews" class="hover:text-white transition">Reviews</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wide text-white/35 mb-4">Services</p>
+      <ul class="space-y-2.5 text-sm">
+        <li>Residential Cleaning</li>
+        <li>Commercial Cleaning</li>
+        <li>Post-Construction</li>
+        <li>Fumigation</li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wide text-white/35 mb-4">Contact</p>
+      <ul class="space-y-2.5 text-sm">
+        <li>+234 904 604 2275</li>
+        <li>hello@kazkleen.com</li>
+        <li>Abuja, FCT, Nigeria</li>
+        <li>Mon–Sat, 8am–6pm</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/35">
+    <p>&copy; 2026 KazKleen Services. All rights reserved.</p>
+    <p>Design concept by Pyrexx</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/2349046042275" target="_blank" rel="noreferrer" aria-label="Message KazKleen on WhatsApp"
+   class="whatsapp-ring fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-whats text-white flex items-center justify-center shadow-soft hover:brightness-95 transition">
+  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.3-.6-.5-.5-.7-.5H8c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.1-1.4 0-.1-.2-.2-.5-.3zM12.1 21a9 9 0 01-4.6-1.3l-.3-.2-3.4.9.9-3.3-.2-.3A9 9 0 1112.1 21z"/></svg>
+</a>
+
+<script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 12) { nav.classList.add('shadow-soft'); }
+    else { nav.classList.remove('shadow-soft'); }
+  });
+
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var iconOpen = document.getElementById('menuIconOpen');
+  var iconClose = document.getElementById('menuIconClose');
+  menuBtn.addEventListener('click', function () {
+    var isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      mobileMenu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // Quality-control checklist: staggered tick-off, then a stamp pops in
+  (function () {
+    var card = document.getElementById('qcCard');
+    var items = document.querySelectorAll('#qcList .qc-item');
+    var stamp = document.getElementById('qcStamp');
+    var played = false;
+
+    function play() {
+      if (played) return;
+      played = true;
+      if (reduceMotion) {
+        items.forEach(function (item) {
+          item.classList.add('on');
+          item.querySelector('.qc-box').classList.add('on');
+          item.querySelector('.qc-check').classList.add('on');
+        });
+        stamp.classList.add('on');
+        return;
+      }
+      items.forEach(function (item, i) {
+        setTimeout(function () {
+          item.classList.add('on');
+          item.querySelector('.qc-box').classList.add('on');
+          item.querySelector('.qc-check').classList.add('on');
+        }, i * 110);
+      });
+      setTimeout(function () { stamp.classList.add('on'); }, items.length * 110 + 250);
+    }
+
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { if (entry.isIntersecting) { play(); io2.unobserve(entry.target); } });
+    }, { threshold: 0.35 });
+    io2.observe(card);
+  })();
+
+  // Stat counters
+  (function () {
+    var counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      if (reduceMotion) { el.textContent = target; return; }
+      var duration = 1200, startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        el.textContent = Math.round(progress * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var io3 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { if (entry.isIntersecting) { animate(entry.target); io3.unobserve(entry.target); } });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { io3.observe(c); });
+  })();
+
+  // Free tools: tab switching
+  (function () {
+    var tabs = document.querySelectorAll('.tool-tab');
+    var panels = { stain: document.getElementById('panel-stain'), estimate: document.getElementById('panel-estimate') };
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) {
+          t.classList.remove('active', 'bg-brand-600', 'text-white');
+          t.classList.add('text-ink/55');
+        });
+        tab.classList.add('active', 'bg-brand-600', 'text-white');
+        tab.classList.remove('text-ink/55');
+        Object.keys(panels).forEach(function (key) { panels[key].classList.add('hidden'); });
+        panels[tab.getAttribute('data-tab')].classList.remove('hidden');
+      });
+    });
+  })();
+
+  // Ask Kaz — client-side demo only, no external API / no exposed keys.
+  // In production, call your own server route that holds the model key server-side.
+  (function () {
+    var tips = {
+      wine: "Blot (don't rub) with a clean cloth immediately. Apply cold water, then a little dish soap mixed with hydrogen peroxide. Blot again and rinse.",
+      oil: "Sprinkle cornstarch or baking soda on the fresh stain, let sit 15 minutes to absorb, then brush off and wash with dish soap and warm water.",
+      ink: "Dab (don't rub) with rubbing alcohol on a cotton pad from the outside in, then wash as usual. Test on a hidden spot first.",
+      coffee: "Rinse the back of the fabric with cool water, then treat with a mix of white vinegar, dish soap, and water before washing.",
+      blood: "Use only cold water — never hot. Soak, then gently work in a little salt or dish soap before rinsing.",
+      grass: "Apply rubbing alcohol or a vinegar solution, let sit 10 minutes, then blot and wash with an enzyme detergent.",
+    };
+    var btn = document.getElementById('stainBtn');
+    var btnText = document.getElementById('stainBtnText');
+    var input = document.getElementById('stainInput');
+    var resultBox = document.getElementById('stainResult');
+    var content = document.getElementById('stainContent');
+
+    btn.addEventListener('click', function () {
+      var val = (input.value || '').toLowerCase().trim();
+      if (!val) return;
+      btn.disabled = true;
+      btnText.textContent = 'Thinking…';
+      setTimeout(function () {
+        var match = Object.keys(tips).find(function (k) { return val.indexOf(k) !== -1; });
+        content.textContent = match
+          ? tips[match]
+          : "Blot (never rub) excess liquid right away, treat with a mild soap-and-cold-water solution, and avoid heat until the stain is fully out. Book a visit if it's set in.";
+        resultBox.classList.remove('hidden');
+        btn.disabled = false;
+        btnText.textContent = 'Get instant advice';
+      }, 700);
+    });
+  })();
+
+  // Instant Estimate — illustrative pricing only; replace with real rates.
+  (function () {
+    var state = { type: 'Apartment', rooms: 2, service: 'standard' };
+    var base = { Apartment: 15000, House: 20000, Office: 25000 };
+    var perRoom = { Apartment: 4000, House: 5000, Office: 6000 };
+
+    function wirePillGroup(containerId, onPick) {
+      var group = document.getElementById(containerId);
+      group.querySelectorAll('.est-pill').forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          group.querySelectorAll('.est-pill').forEach(function (p) {
+            p.classList.remove('active', 'bg-brand-600', 'text-white');
+            p.classList.add('bg-white/70', 'text-ink/60', 'border', 'border-white/80');
+          });
+          pill.classList.add('active', 'bg-brand-600', 'text-white');
+          pill.classList.remove('bg-white/70', 'text-ink/60', 'border', 'border-white/80');
+          onPick(pill.getAttribute('data-val'));
+        });
+      });
+    }
+    wirePillGroup('estType', function (v) { state.type = v; });
+    wirePillGroup('estRooms', function (v) { state.rooms = parseInt(v, 10); });
+    wirePillGroup('estService', function (v) { state.service = v; });
+
+    document.getElementById('estBtn').addEventListener('click', function () {
+      var amount = base[state.type] + state.rooms * perRoom[state.type];
+      if (state.service === 'deep') amount *= 1.4;
+      var low = Math.round((amount * 0.9) / 500) * 500;
+      var high = Math.round((amount * 1.15) / 500) * 500;
+      var hours = Math.round((1.5 + state.rooms * 0.6) * (state.service === 'deep' ? 1.3 : 1) * 10) / 10;
+
+      document.getElementById('estPrice').textContent =
+        '₦' + low.toLocaleString('en-NG') + ' – ₦' + high.toLocaleString('en-NG');
+      document.getElementById('estMeta').textContent =
+        'Roughly ' + hours + ' hours on site · ' + state.type.toLowerCase() + ', ' + state.rooms + ' room(s), ' + (state.service === 'deep' ? 'deep clean' : 'standard clean');
+      document.getElementById('estResult').classList.remove('hidden');
+    });
+  })();
+</script>
+</body>
+</html>
