@@ -68,14 +68,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Layered Stock Photos & Badge */}
+        {/* Right Column: Exact Stock Photography Composition */}
         <div className="lg:col-span-6 relative h-[420px] sm:h-[480px] isolate">
           <div className="absolute top-0 right-0 w-[78%] h-[72%] rounded-[28px] overflow-hidden shadow-soft rotate-[2deg] border-4 border-white/70">
             <Image
               src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=900&auto=format&fit=crop"
-              alt="Bright, pristine living room cleaned by KazKleen in Abuja"
+              alt="Bright, freshly cleaned living room in an Abuja home"
               fill
               priority
+              unoptimized
               sizes="(max-width: 1024px) 70vw, 450px"
               className="object-cover"
             />
@@ -84,8 +85,9 @@ export default function Hero() {
           <div className="absolute bottom-0 left-0 w-[54%] h-[48%] rounded-[24px] overflow-hidden shadow-glass -rotate-[3deg] border-4 border-white/70">
             <Image
               src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=700&auto=format&fit=crop"
-              alt="Neatly organised wardrobe after KazKleen decluttering session"
+              alt="Neatly organised wardrobe after a KazKleen decluttering session"
               fill
+              unoptimized
               sizes="(max-width: 1024px) 50vw, 300px"
               className="object-cover"
             />
