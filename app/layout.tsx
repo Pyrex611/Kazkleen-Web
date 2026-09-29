@@ -29,9 +29,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://kazkleen.com'),
   title: 'KazKleen | Sparkling Kleen Always | Premium Cleaning Services in Abuja',
   description:
-    'KazKleen provides professional deep cleaning, post-construction cleaning, fumigation, and rug washing across Maitama, Wuse II, Guzape, and all Abuja districts. Insured & vetted team.',
+    'KazKleen provides elite residential deep cleaning, post-construction restoration, eco-friendly fumigation, and corporate office janitorial services across Maitama, Wuse II, Asokoro, Guzape, and all Abuja districts.',
   keywords: [
     'cleaning services abuja',
     'post construction cleaning in abuja',
@@ -39,10 +40,13 @@ export const metadata: Metadata = {
     'fumigation abuja',
     'office janitorial abuja',
     'rug and carpet washing abuja',
+    'cleaning company in maitama',
+    'cleaning company in wuse 2',
+    'cleaning company in asokoro',
     'best cleaners in abuja',
     'after party cleanup abuja',
   ],
-  authors: [{ name: 'KazKleen Services', url: 'https://kazkleen.com' }],
+  authors: [{ name: 'KazKleen Services Nigeria', url: 'https://kazkleen.com' }],
   creator: 'KazKleen Services',
   publisher: 'KazKleen Services',
   robots: {
@@ -60,9 +64,9 @@ export const metadata: Metadata = {
     canonical: 'https://kazkleen.com',
   },
   openGraph: {
-    title: 'KazKleen | Sparkling Kleen Always | Abuja Cleaning Services',
+    title: 'KazKleen | Beyond Clean. Beyond Compare | Abuja Cleaning Services',
     description:
-      'We treat every room like it is the one being inspected. Premium residential, commercial, post-construction cleaning, and fumigation in Abuja.',
+      'We treat every room like it is the one being inspected. Professional deep cleaning, fumigation, and organization for luxury homes and corporate spaces in Abuja.',
     url: 'https://kazkleen.com',
     siteName: 'KazKleen',
     locale: 'en_NG',
@@ -99,99 +103,166 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const structuredData = {
+  // Enterprise Linked Data Graph: CleaningService + LocalBusiness + FAQPage + WebSite
+  const enterpriseSchemaGraph = {
     '@context': 'https://schema.org',
-    '@type': 'CleaningService',
-    '@id': 'https://kazkleen.com/#business',
-    name: 'KazKleen Services',
-    legalName: 'KazKleen Services Nigeria',
-    url: 'https://kazkleen.com',
-    telephone: '+2349046042275',
-    email: 'kazkleen@gmail.com',
-    image: 'https://kazkleen.com/kaz.jpg',
-    logo: 'https://kazkleen.com/kaz.jpg',
-    priceRange: '₦₦',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Abuja',
-      addressRegion: 'Federal Capital Territory',
-      addressCountry: 'NG',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 9.0765,
-      longitude: 7.3986,
-    },
-    openingHoursSpecification: [
+    '@graph': [
       {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
+        '@type': 'WebSite',
+        '@id': 'https://kazkleen.com/#website',
+        url: 'https://kazkleen.com',
+        name: 'KazKleen Abuja',
+        description: 'Premium cleaning and fumigation services across Abuja',
+        publisher: {
+          '@id': 'https://kazkleen.com/#business',
+        },
+      },
+      {
+        '@type': 'CleaningService',
+        '@id': 'https://kazkleen.com/#business',
+        name: 'KazKleen Services',
+        legalName: 'KazKleen Services Nigeria',
+        url: 'https://kazkleen.com',
+        telephone: '+2349046042275',
+        email: 'kazkleen@gmail.com',
+        image: 'https://kazkleen.com/kaz.jpg',
+        logo: 'https://kazkleen.com/kaz.jpg',
+        priceRange: '₦₦',
+        paymentAccepted: ['Cash', 'Bank Transfer', 'Debit Card'],
+        currenciesAccepted: 'NGN',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Central Business District',
+          addressLocality: 'Abuja',
+          addressRegion: 'Federal Capital Territory',
+          postalCode: '900001',
+          addressCountry: 'NG',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 9.0765,
+          longitude: 7.3986,
+        },
+        hasMap: 'https://maps.google.com/?q=Abuja,+Nigeria',
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: [
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+            ],
+            opens: '08:00',
+            closes: '18:00',
+          },
         ],
-        opens: '08:00',
-        closes: '18:00',
+        areaServed: [
+          { '@type': 'AdministrativeArea', name: 'Maitama, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Wuse II, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Asokoro, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Guzape, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Jabi, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Gwarinpa, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Central Business District, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Apo, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Katampe, Abuja' },
+          { '@type': 'AdministrativeArea', name: 'Mabushi, Abuja' },
+        ],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '128',
+          bestRating: '5',
+          worstRating: '1',
+        },
+        knowsAbout: [
+          'Post-Construction Dust Decontamination',
+          'Eco-friendly Synthetic Pyrethroid Fumigation',
+          'High-traffic Office Janitorial Maintenance',
+          'Deep Wool & Synthetic Rug Steam Extraction',
+          'Wardrobe Organization & De-cluttering',
+        ],
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'KazKleen Service Catalog',
+          itemListElement: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Residential Deep Cleaning',
+                description: 'Clinical-grade sanitization for apartments, duplexes, and estates in Abuja.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Post-Construction Restoration',
+                description: 'Heavy paint splatter, grout residue, and micro-dust extraction.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Commercial & Office Janitorial',
+                description: 'Corporate workplace sanitation before or after office hours.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'NAFDAC-Compliant Fumigation',
+                description: 'Child- and pet-safe targeted pest eradication across Abuja.',
+              },
+            },
+          ],
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://kazkleen.com/#faq',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How much does professional cleaning cost in Abuja?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'KazKleen apartment maintenance starts at approximately ₦18,000 for standard maintenance and ₦26,000 for deep cleans. Full house and commercial rates depend on room count, with transparent estimates available via our instant online calculator.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What does KazKleen post-construction cleaning include?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Our post-construction protocol eliminates paint splatter, mortar dust, tile cement haze, and airborne particulate, leaving luxury villas and renovated apartments move-in ready.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Are KazKleen fumigation chemicals safe for kids and pets?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. We utilize low-odor, eco-conscious synthetic pyrethroid formulations approved by NAFDAC that are safe for homes with infants and animals following a brief 2 to 3-hour drying window.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Which districts in Abuja does KazKleen service?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'KazKleen operates rapid-deployment teams across Maitama, Wuse II, Asokoro, Guzape, Jabi, Gwarinpa, Central Business District, Katampe, Mabushi, and Apo.',
+            },
+          },
+        ],
       },
     ],
-    areaServed: [
-      { '@type': 'AdministrativeArea', name: 'Maitama, Abuja' },
-      { '@type': 'AdministrativeArea', name: 'Wuse II, Abuja' },
-      { '@type': 'AdministrativeArea', name: 'Guzape, Abuja' },
-      { '@type': 'AdministrativeArea', name: 'Asokoro, Abuja' },
-      { '@type': 'AdministrativeArea', name: 'Jabi, Abuja' },
-      { '@type': 'AdministrativeArea', name: 'Gwarinpa, Abuja' },
-      { '@type': 'AdministrativeArea', name: 'Central Business District, Abuja' },
-    ],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Professional Cleaning & Fumigation Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Residential Deep Cleaning',
-            description: 'Comprehensive top-to-bottom home sanitization in Abuja.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Post-Construction Cleaning',
-            description: 'Removal of paint splatter, debris, and fine dust after construction or renovations.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Commercial & Office Janitorial',
-            description: 'Sanitary janitorial services for corporate spaces and retail outlets.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Professional Fumigation & Pest Control',
-            description: 'Targeted pest elimination using eco-conscious chemicals.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Rug & Upholstery Deep Extraction',
-            description: 'Stain and allergen removal for carpets, rugs, and luxury sofas.',
-          },
-        },
-      ],
-    },
   };
 
   return (
@@ -203,7 +274,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(enterpriseSchemaGraph) }}
         />
       </head>
       <body className="font-sans text-ink bg-mist antialiased relative selection:bg-brand-600 selection:text-white">

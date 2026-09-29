@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,13 +38,25 @@ export default function Navbar() {
           isScrolled ? "shadow-soft" : "shadow-glass"
         }`}
       >
-        <Link href="#home" className="flex items-center gap-2 shrink-0">
-          <span className="font-display font-medium text-xl tracking-tight text-ink">
+        {/* Brand Logo & Name */}
+        <Link href="#home" className="flex items-center gap-3 shrink-0 group">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-brand-500/30 shadow-sm shrink-0">
+            <Image
+              src="/kaz.jpg"
+              alt="KazKleen Services Logo"
+              width={32}
+              height={32}
+              priority
+              className="object-cover w-full h-full transform transition duration-300 group-hover:scale-105"
+            />
+          </div>
+          <span className="font-display font-semibold text-lg sm:text-xl tracking-tight text-ink">
             KazKleen
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-ink/70">
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-ink/75">
           <Link href="#proof" className="hover:text-brand-700 transition">
             Our Standard
           </Link>
@@ -56,11 +69,15 @@ export default function Navbar() {
           <Link href="#tools" className="hover:text-brand-700 transition">
             Free Tools
           </Link>
+          <Link href="#faq" className="hover:text-brand-700 transition">
+            FAQ
+          </Link>
           <Link href="#reviews" className="hover:text-brand-700 transition">
             Reviews
           </Link>
         </div>
 
+        {/* CTA & Mobile Hamburger */}
         <div className="flex items-center gap-2">
           <Link
             href="#contact"
@@ -105,6 +122,9 @@ export default function Navbar() {
           </Link>
           <Link href="#tools" onClick={closeMenu} className="py-2.5 border-b border-white/40 hover:text-brand-700">
             Free Tools
+          </Link>
+          <Link href="#faq" onClick={closeMenu} className="py-2.5 border-b border-white/40 hover:text-brand-700">
+            FAQ
           </Link>
           <Link href="#reviews" onClick={closeMenu} className="py-2.5 border-b border-white/40 hover:text-brand-700">
             Reviews

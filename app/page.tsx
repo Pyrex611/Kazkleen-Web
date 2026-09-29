@@ -7,6 +7,7 @@ import TrustStrip from "@/components/TrustStrip";
 import Gallery from "@/components/Gallery";
 import FreeTools from "@/components/FreeTools";
 import Reviews from "@/components/Reviews";
+import EnterpriseSEOSection from "@/components/EnterpriseSEOSection";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -27,7 +28,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Navigation */}
+      {/* Navigation with Brand Logo */}
       <Navbar />
 
       {/* Main Content Sections */}
@@ -40,6 +41,8 @@ export default function Home() {
         <Gallery />
         <FreeTools />
         <Reviews />
+        {/* Enterprise GEO Knowledge Base & Abuja District Anchor */}
+        <EnterpriseSEOSection />
         <ContactCTA />
       </main>
 

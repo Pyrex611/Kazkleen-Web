@@ -1,17 +1,44 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
+  const districts = [
+    "Maitama",
+    "Wuse II",
+    "Asokoro",
+    "Guzape",
+    "Jabi",
+    "Gwarinpa",
+    "Central Area",
+    "Apo",
+    "Katampe",
+    "Mabushi",
+  ];
+
   return (
     <footer className="bg-ink text-white/65 px-4 sm:px-6 pt-16 pb-8 border-t border-white/10">
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-        {/* Col 1: Brand & Socials */}
+        {/* Col 1: Brand, Logo & Socials */}
         <div>
-          <span className="font-display text-xl text-white font-medium">KazKleen</span>
-          <p className="mt-3 text-sm max-w-xs leading-relaxed text-white/60">
-            Premium residential and commercial cleaning, fumigation, and organisation — serving every district
-            across the Abuja Federal Capital Territory.
+          <div className="flex items-center gap-3">
+            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/20 shadow-sm shrink-0">
+              <Image
+                src="/kaz.jpg"
+                alt="KazKleen Services Logo"
+                width={36}
+                height={36}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <span className="font-display text-xl text-white font-medium">KazKleen</span>
+          </div>
+
+          <p className="mt-4 text-sm max-w-xs leading-relaxed text-white/60">
+            Abuja&apos;s leading residential, corporate, post-construction cleaning, and fumigation firm.
+            Vetted technicians delivering clinical precision across the FCT.
           </p>
-          <div className="flex gap-3 mt-5">
+
+          <div className="flex gap-3 mt-6">
             <a
               href="https://www.instagram.com/kazkleen/?hl=en"
               target="_blank"
@@ -54,54 +81,70 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm">
             <li>
               <Link href="#proof" className="hover:text-white transition">
-                Our Standard
+                12-Point Inspection Standard
               </Link>
             </li>
             <li>
               <Link href="#services" className="hover:text-white transition">
-                Services
+                Our Services
               </Link>
             </li>
             <li>
               <Link href="#process" className="hover:text-white transition">
-                Process
+                3-Step Process
               </Link>
             </li>
             <li>
               <Link href="#tools" className="hover:text-white transition">
-                Free Tools
+                Free AI Stain Tool
+              </Link>
+            </li>
+            <li>
+              <Link href="#faq" className="hover:text-white transition">
+                Frequently Asked Questions
               </Link>
             </li>
             <li>
               <Link href="#reviews" className="hover:text-white transition">
-                Reviews
+                Abuja Client Reviews
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Col 3: Services */}
+        {/* Col 3: Core Services */}
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4 font-mono">Services</p>
           <ul className="space-y-2.5 text-sm">
             <li>Residential Deep Cleaning</li>
-            <li>Commercial Janitorial</li>
-            <li>Post-Construction Clean</li>
-            <li>Fumigation &amp; Pest Control</li>
-            <li>Rug &amp; Upholstery Washing</li>
-            <li>After-Party Fast Cleanup</li>
+            <li>Commercial &amp; Office Janitorial</li>
+            <li>Post-Construction Restoration</li>
+            <li>Eco-Safe Fumigation &amp; Pest Control</li>
+            <li>Rug &amp; Upholstery Steam Washing</li>
+            <li>After-Party Fast Turnaround Cleanup</li>
           </ul>
         </div>
 
-        {/* Col 4: Contact */}
+        {/* Col 4: Contact & Coverage Footprint */}
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4 font-mono">Contact</p>
-          <ul className="space-y-2.5 text-sm">
-            <li>+234 904 604 2275</li>
+          <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4 font-mono">Abuja Office</p>
+          <ul className="space-y-2 text-sm text-white/70">
+            <li className="text-white font-medium">+234 904 604 2275</li>
             <li>kazkleen@gmail.com</li>
-            <li>Abuja, FCT, Nigeria</li>
+            <li>Abuja, Federal Capital Territory, Nigeria</li>
             <li>Mon–Sat, 8:00 AM – 6:00 PM</li>
           </ul>
+
+          <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mt-5 mb-2 font-mono">
+            Key Coverage Areas
+          </p>
+          <div className="flex flex-wrap gap-1.5 text-[11px] text-white/50">
+            {districts.map((d) => (
+              <span key={d} className="bg-white/5 px-2 py-0.5 rounded border border-white/10">
+                {d}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
